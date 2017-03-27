@@ -1,0 +1,125 @@
+.with-hero-banner, .hero-banner-gradient {
+  background-size:auto 650px;
+  @include media($media__xlarge) { background-size: contain; }
+  @include media($media__xxlarge) { background-size: 1920px 1000px; }
+}
+
+.hero-banner-gradient {
+  &.dark {
+    @include media(max-width $media__large) { background-image: url('img/herobanner/hero-banner-overlay-dark-center.png') !important; }
+  }
+  &.light {
+    @include media(max-width $media__large) { background-image: url('img/herobanner/hero-banner-overlay-light-center.png') !important; }
+  }
+}
+
+.hero-banner-container {
+  @include row();
+  padding:0;
+  @include outer-container($local-max-width: $container__content-width);
+  &.full-width { @include outer-container($local-max-width: $container__outer-width); }
+}
+
+.hero-banner {
+  @include clearfix;
+  @include span-columns(12);
+  text-align: center;
+  padding:($v-rhythm * 2) em(30px);
+  @include media($media__small) { padding:($v-rhythm * 6) em(30px); }
+  @include media($media__medium) { @include shift(1); @include span-columns(10); }
+
+  .btn {
+    display:block;
+    margin-right:0;
+    @include media($media__small) {
+      margin-right:em(6px);
+      display: inline-block;
+    }
+  }
+
+  //  In hero-banner, h1 looks the same as H5, H2 is same as H1 but light font weight
+  h1, h2 { color:white; }
+
+  .lead {
+    @include media(max-width $media__large) { @include font-size(16); }
+  }
+  a { display:block; margin:$v-rhythm 0; }
+
+  &.light-text {
+    h1, h2, .lead { color:white; text-shadow:0px 1px 1px black; }
+
+    .btn.primary {
+      text-shadow:none;
+      color:$color__fipra-blue;
+      @include linear-gradient(white 60%, darken(white, 10%) 100%);
+    }
+    .btn.secondary {
+      color:white;
+      border-color: white;
+    }
+  }
+
+  &.dark-text {
+    h2 {
+      color:$color__fipra-blue;
+    }
+    h1, .lead {
+      color:$color_soft-black;
+      text-shadow:0px 1px 1px $color__fipra-light-gray;
+    }
+    .btn.primary {
+      text-shadow:0px 1px 3px lighten($color__fipra-blue, 10%);
+    }
+    .btn.secondary {
+      border:1px solid $color__fipra-blue;
+      color:$color__fipra-blue;
+      &:hover {
+        border:1px solid $color__fipra-blue-gray;
+        color:$color__fipra-blue-gray;
+      }
+    }
+  }
+
+  &.left {
+    @include media($media__large) { @include shift(0); @include span-columns(6); text-align:left; }
+    @include media($media__xxlarge) { @include shift(0); @include span-columns(7); }
+
+  }
+  &.right {
+    @include media($media__large) { @include shift(6); @include span-columns(6); text-align:left; }
+    @include media($media__xxlarge) { @include shift(5); @include span-columns(7); }
+  }
+
+  &.center {
+    @include media($media__large) { @include shift(1); @include span-columns(10); text-align:center; }
+  }
+
+  @include media($media__large) {
+    text-align: left;
+    padding:($v-rhythm * 7) 0;
+    @include span-columns(7);
+    @include shift(1);
+    a {
+      display:inline;
+      margin-right: em(16px);
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include media($media__xlarge) {
+    padding:($v-rhythm * 7) 0;
+  }
+  @include media($media__xxlarge) {
+    padding:($v-rhythm * 16) 0;
+  }
+}
+
+.hero-flag {
+  @include media($media__medium) {
+    display:block !important;
+    margin:0 auto !important;
+    width:64px !important; height:64px !important;
+  }
+}

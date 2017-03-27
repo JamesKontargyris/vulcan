@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2017-03-14 12:50:27
+FN:Ayse Beyazit-Aricioglu
+N:Beyazit-Aricioglu;Ayse;;;
+ORG:Fipra
+ADR;type=WORK:;;Cavusbasi Cad. \nYedek Reis Sok. No. 7/6\nKavacik, Beykoz\nIstanbul\nTurkey;;;;
+EMAIL;type=INTERNET,pref:ayse.aricioglu@fipra.com
+TEL;type=WORK,voice:+90 216 425 1580
+URL;type=WORK:http://fipradotcom.dev/our-people/ayse-beyazit-aricioglu/
+ROLE:Fipra Turkey
+TZ:+0000
+END:VCARD

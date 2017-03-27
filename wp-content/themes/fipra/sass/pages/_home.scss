@@ -1,0 +1,115 @@
+.home {
+
+//  .full-width-block-container {
+//    //    Change default padding on content-bar
+//    &.with-content-bar {
+//      @include media($media__large) { padding: $v-rhythm * 8 0; }
+//      @include media($media__xlarge) { padding: $v-rhythm * 15 0; }
+//
+//      &.content-bar-top {
+//        @include media($media__large) { padding: 0 0 $v-rhythm * 16; }
+//        @include media($media__xlarge) { padding: 0 0 $v-rhythm * 30; }
+//      }
+//
+//      &.content-bar-bottom {
+//        @include media($media__large) { padding: $v-rhythm * 16 0 0; }
+//        @include media($media__xlarge) { padding: $v-rhythm * 30 0 0; }
+//      }
+//    }
+//  }
+
+  #site-content-container { margin-top:0 !important; }
+
+  #home-hero-carousel-container {
+    position: relative;
+    .owl-prev, .owl-next {
+      z-index: 5;
+      position: absolute;
+      top: 50%;
+      @include font-size(24);
+      color: white;
+      &:hover { color: $color__fipra-red; }
+    }
+    .owl-prev { left: 12px; }
+    .owl-next { right: 12px; }
+  }
+
+  #home-hero-carousel {
+
+    .hero {
+      .full-width-block-container {
+        display: table; width: 100%; height: 100%;
+      }
+      //Centre content vertically in bar
+      .full-width-block-content-container {
+        display: table-cell; vertical-align: middle; width: 100%; height: 100% !important; padding-bottom:$v-rhythm * 4;
+//        Add padding for the navigation buttons
+        padding-left: 48px; padding-right: 48px;
+        &:not(&.content-bar) {
+          //    Change default padding
+          @include media($media__large) { padding-top: $v-rhythm * 12; padding-bottom: $v-rhythm * 12; }
+          @include media($media__xlarge) { padding-top: $v-rhythm * 16; padding-bottom: $v-rhythm * 16; }
+        }
+      }
+    }
+    .full-width-block-content {
+      .blurb { @include font-size(18); }
+      @include media(max-width $media__medium) {
+        .home-hero-title-and-blurb { margin-bottom:20px; }
+        .home-hero-link a { display:block; margin:0 0 6px 0; }
+        .blurb { @include font-size(16); line-height:1.3; }
+      }
+
+      @include media(max-width $media__medium) {
+//        h1 { @include font-size(24); line-height: $v-rhythm * 3; }
+      }
+      @include media($media__medium) {
+//        h1 { @include font-size(36); line-height: $v-rhythm * 3.5; }
+      }
+    }
+
+    .owl-pagination { margin-top: -40px;
+      .owl-page {
+        span { background: white !important; opacity: 0.4; }
+        &.active {
+          span { opacity: 0.9; }
+        }
+      }
+    }
+
+  }
+}
+
+.home-feature-block {
+  .home-feature-block-text { text-align:center; @include media($media__medium) { padding:3rem 0; text-align:left; } }
+  .home-feature-block-image { line-height:0; @include media(max-width $media__medium) { display:none; } }
+}
+
+#home-block-services-and-expertise {
+  .showcase {
+    .svg-icon {
+      float:left;
+      background-color: white;
+      width: 52px; height: 52px;
+      @include border-top-radius(50%);
+      @include border-bottom-radius(50%);
+      border-bottom:2px solid darken($color__fipra-light-gray, 10%); margin-bottom:$v-rhythm * 6;
+      @include media(max-width $media__medium) { display:none; }
+      &:hover { opacity: 0.7; }
+      svg { fill:$color__fipra-blue; width:60%; }
+    }
+    h1, h2, h3, h4, h5, h6 { display:inline-block; }
+
+    .showcase-block { @include media(max-width $media__medium) { margin-bottom:0; border-top:1px solid rgba(black, 0.1); padding-top:$v-rhythm; text-align: center; } }
+  }
+}
+
+#our-people-container {
+  p { margin:0 rem(12px); }
+  #our-people-carousel { margin:$v-rhythm * 3 0; }
+  h1, h2, h3 { .owl-prev, .owl-next { color:$color__fipra-blue; } }
+
+  .full-width-block-content-container { padding-bottom:0; }
+}
+
+

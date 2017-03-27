@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2017-03-02 14:00:18
+FN:Paul Nallon
+N:Nallon;Paul;;;
+ORG:Fipra
+ADR;type=WORK:;;Rue de la Loi 227\nBrussels\n1040\nBelgium;;;;
+EMAIL;type=INTERNET,pref:paul.nallon@fipra.com
+TEL;type=WORK,voice:+32 2 613 2828
+URL;type=WORK:http://fipradotcom.dev/our-people/paul-nallon/
+ROLE:Fipra  International
+TZ:+0000
+END:VCARD

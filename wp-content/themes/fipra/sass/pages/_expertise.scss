@@ -1,0 +1,55 @@
+#content-container.expertise-area {
+  #hero {
+
+    .full-width-block-content-container {
+
+      .full-width-block-content {
+        img, svg {
+          @include media(max-width $media__medium) { display:none; }
+          width: 60px; height: 60px;
+          fill:white;
+        }
+
+        h1 { margin-bottom: $v-rhythm; position:relative; }
+      }
+
+    }
+
+  }
+
+  #expertise-menu-container {
+
+    #expertise-carousel {
+      margin-top: $v-rhythm * 3;
+      .expertise-area {
+        margin:0 12px;
+        a {
+          display:block;
+          //        @extend .white-box;
+          width:100%; height:100%;
+          text-align: center;
+          &:hover { opacity: 0.5; }
+
+          .svg-icon { display: block !important; width:100%; padding:$v-rhythm * 3; margin-bottom:$v-rhythm;
+            svg { height:70%; }}
+          .expertise-area-name { @include font-size(18); padding: $v-rhythm em(12px); }
+        }
+      }
+    }
+
+  }
+
+  // Expertise landing page
+  .areas-of-expertise-block .full-width-block-content {
+    text-align: left !important;
+  }
+  .public-affairs-services-block .full-width-block-content {
+    text-align: left !important;
+  }
+}
+
+.contact-button {
+  display: block;
+  margin-top:$v-rhythm;
+}
+

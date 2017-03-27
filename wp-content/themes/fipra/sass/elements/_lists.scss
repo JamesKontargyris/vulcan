@@ -1,0 +1,51 @@
+ul, ol {
+  margin: 0 0 $v-rhythm * 2 0;
+  padding-left: 0;
+  line-height: $v-rhythm * 3;
+}
+
+#content, footer {
+  ul {
+    list-style: none;
+    &.no-bottom-margin { margin-bottom: 0; }
+    &.no-v-spacing { li { margin-bottom:0; } }
+  }
+
+  ul.bullets {
+    li {
+      padding-left: em(30px);
+      text-indent: em(-30px);
+      margin-bottom: $v-rhythm;
+      line-height: $v-rhythm * 2;
+      &:before {
+        content: "■ ";
+        @include font-size(12);
+        padding-right: em(28px);
+        color: $color__fipra-blue;
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: em(24px);
+    li {
+      margin-bottom: $v-rhythm;
+    }
+  }
+
+  li > ul,
+  li > ol {
+    margin-top: $v-rhythm;
+    margin-bottom: 0;
+    margin-left: em(24px);
+  }
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 $v-rhythm * 2 em(24px);
+}

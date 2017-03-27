@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2016-04-18 20:07:36
+FN:Rory Chisholm
+N:Chisholm;Rory;;;
+ORG:Fipra
+ADR;type=WORK:;;Tenter House\n45 Moorfields\nLondon\nEC2Y 9AE\nUnited Kingdom;;;;
+EMAIL;type=INTERNET,pref:rory.chisholm@fipra.com
+TEL;type=WORK,voice:+44 207 251 3801
+URL;type=WORK:http://fipradotcom.dev/our-people/rory-chisholm/
+ROLE:Fipra United Kingdom
+TZ:+0000
+END:VCARD

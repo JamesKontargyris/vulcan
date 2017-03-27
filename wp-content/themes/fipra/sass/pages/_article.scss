@@ -1,0 +1,248 @@
+.article-extract {
+  @include clearfix;
+  // padding:$v-rhythm * 1.5;
+  // border:1px solid darken($color__fipra-light-gray, 10%);
+  margin-bottom:$v-rhythm * 3;
+  text-align: center;
+
+  @include media(min-width $media__small) {
+    text-align: left;
+  }
+
+  @include media(min-width $media__medium) {
+    margin-bottom:$v-rhythm * 5;
+  }
+}
+
+.article-extract__section {
+
+  @include media(min-width $media__small) {
+    display:table-cell;
+    vertical-align: top;
+  }
+}
+
+.article-extract__headline {
+  margin:0 0 $v-rhythm * 0.5 0;
+  font-weight:$font__bold;
+  line-height:1.3;
+
+  @include media(max-width $media__small) {
+    @include font-size(18);
+  }
+}
+
+.article-extract__type-icon,
+.article__type-icon{
+  max-width:18px;
+  vertical-align: middle;
+}
+
+.article-extract__type-container {
+  margin-bottom:$v-rhythm * 0.5;
+  @include font-size(13);
+  letter-spacing:1px;
+  font-weight:$font__black;
+  text-transform: uppercase;
+}
+
+.article-extract__type--news,
+.article__type--news {
+  color:$color__fipra-turquoise;
+}
+
+.article-extract__type--analysis,
+.article__type--analysis {
+  color:$color__fipra-orange;
+}
+
+.article-extract__meta,
+.article__meta {
+  text-transform: uppercase;
+  color:$color__fipra-blue-gray;
+  @include font-size(12);
+  line-height:1.4;
+  font-style: italic;
+
+  @include media(min-width $media__medium) {
+    letter-spacing: 1px;
+  }
+}
+
+.article__meta {
+  @include font-size(12);
+  margin:$v-rhythm 0 $v-rhythm * 2;
+}
+
+.article-extract__image {
+  display:block;
+  float:left;
+  max-width:100px;
+  margin-bottom:0;
+  margin-right:20px;
+
+  @include media(max-width $media__small) {
+    max-width:150px;
+    margin:0 auto 5px auto;
+    float: none;
+  }
+  @include media(min-width $media__medium) {
+    max-width:180px;
+  }
+}
+
+.article__image {
+  display:block;
+  max-width:150px;
+  float:left;
+  margin:0 15px 10px 0;
+
+  @include media(min-width $media__medium) {
+    max-width:250px;
+  }
+
+  @include media(max-width $media__small) {
+    max-width:100%;
+  }
+}
+
+.article-extract__text {
+  @include font-size(16);
+  line-height:1.5;
+  margin-bottom: $v-rhythm * 0.75;
+
+  @include media(max-width $media__small) {
+    @include font-size(14);
+  }
+}
+
+.article-extract__read-more {
+  font-weight:$font__bold;
+}
+
+.article__tags {
+  margin-top: $v-rhythm * 2;
+  margin-bottom: $v-rhythm * 2;
+  /*padding:$v-rhythm;
+  border:1px solid darken($color__fipra-light-gray, 10%);*/
+
+  h6 {
+    display:inline-block;
+    padding-right:10px;
+    margin:0;
+  }
+}
+
+.sidebar-article-extract {
+  @include clearfix;
+  margin-top:10px;
+}
+.sidebar-article-extract__headline {
+  display:block;
+  @include font-size(15);
+  line-height:1.3;
+  font-weight: $font__bold;
+}
+.sidebar-article-extract__image {
+  float:left;
+  max-width:80px;
+  margin:0 10px 10px 0;
+
+  @include media(max-width $media__small) {
+    display:none;
+  }
+}
+.sidebar-article-extract__meta {
+  text-transform: uppercase;
+  color:$color__fipra-blue-gray;
+  @include font-size(11);
+  line-height:1.2;
+  margin-top:5px;
+}
+
+.article-tabs {
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  margin-bottom:40px;
+
+
+  li {
+    flex-grow:1;
+    text-align: center;
+
+    &:not(:last-of-type) {
+      margin-right:10px;
+    }
+
+    a {
+      position:relative;
+      display:block;
+      text-transform: uppercase;
+      border:1px solid $color__fipra-blue;
+      @include font-size(11);
+      font-weight:$font__bold;
+
+      @include media(min-width $media__medium) {
+        letter-spacing:2px;
+        @include font-size(13);
+      }
+
+      &:hover {
+        background-color: $color__fipra-light-gray;
+      }
+
+      &.active {
+        background-color: $color__fipra-blue;
+        border:1px solid $color__fipra-blue;
+        color:white;
+
+        &::after {
+          position:absolute;
+          background:url('./img/article-tab-active-arrow.png') top left no-repeat;
+          width:16px;
+          height:10px;
+          content: "\00a0";
+          bottom:0px;
+          margin-bottom:-9px;
+          left:50%;
+          margin-left:-6px;
+        }
+
+        &.article-tabs__link--news {
+          background-color: $color__fipra-turquoise;
+          border:1px solid $color__fipra-turquoise;
+          &::after {
+            background:url('./img/article-tab-active-arrow--turquoise.png') top left no-repeat;
+          }
+        }
+        &.article-tabs__link--analysis {
+          background-color: $color__fipra-orange;
+          border:1px solid $color__fipra-orange;
+          &::after {
+            background:url('./img/article-tab-active-arrow--orange.png') top left no-repeat;
+          }
+        }
+
+      }
+
+    }
+  }
+}
+
+.article-group {
+  display:none;
+  
+  &.active {
+    display: block;
+  }
+}
+
+.article-archive-button-container {
+  text-align: center;
+  margin-top:-$v-rhythm;
+}
+.article-archive-button {
+}

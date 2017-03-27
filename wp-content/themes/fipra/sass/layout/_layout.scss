@@ -1,0 +1,140 @@
+@import "header";
+@import "footer";
+@import "showcase";
+@import "team";
+@import "hero-banner";
+//@import "page-banner";
+@import "page-nav";
+@import "page-header";
+@import "full-width-block";
+@import "global-network-menu";
+@import "search";
+@import "people";
+@import "carousel";
+
+#content-container {
+  @include clearfix;
+  width:100%;
+  @include media(max-width $media__medium) { padding-top:64px; }
+
+  &.with-border { padding-top:$v-rhythm; border-top:1px solid $color__fipra-light-gray; }
+
+//  @include media($media__xlarge) { padding-top:$v-rhythm * 2; }
+  &.with-hero-banner { padding-top:0; }
+
+  #site-content-container {
+    margin-top:$v-rhythm * 3;
+    #site-content { @extend .content-area; padding-bottom:$v-rhythm * 3; }
+  }
+
+  #primary {
+    @include span-columns(12);
+    @include media($media__medium) { @include span-columns(8); }
+    &.full-width { @include span-columns(12); }
+    //If layout includes the sidebar on the left, shift the primary column to the right
+    //so it appears first on mobile displays but to the right on desktop displays
+    &.left-sidebar { @include media($media__medium) { @include shift(4); } }
+    &.narrow-column {
+      @include media($media__medium) { @include span-columns(9.5); @include shift(1.5); }
+    }
+  }
+
+  #secondary {
+    @include span-columns(12);
+    @include media($media__medium) { @include span-columns(4); }
+    aside {
+      @include clearfix;
+      &:not(:first-child) { margin-top:$v-rhythm * 2; padding-top:$v-rhythm; border-top:1px solid darken($color__fipra-lighter-gray, 7%); }
+//      @include media($media__medium) { padding-bottom: $v-rhythm; }
+    }
+    //If layout includes the sidebar on the left, shift the secondary column to the left
+    //so it appears first on desktop displays but second on mobile displays
+    &.left-sidebar { @include media($media__medium) { @include shift(-12); } }
+
+    @include media(max-width $media__medium) {
+      margin-top:20px;
+    }
+  }
+
+  #page-footer {
+    @include clearfix();
+    margin-top:$v-rhythm * 2;
+    margin-bottom:-$v-rhythm * 2;
+    @include span-columns(12);
+  }
+
+//  @include media($media__medium) {
+//    #primary ~ #secondary { &.content-area { padding-left:0; @include omega(); } }
+//    #secondary ~ #primary { &.content-area { padding-left:0; @include omega(); } }
+//  }
+
+}
+
+.row { @include row(); }
+
+.content-area {
+  @include outer-container($container__content-width);
+  padding-left:20px;
+  padding-right:20px;
+
+  @include media($media__medium) { @include outer-container($container__outer-width); padding-left:40px; padding-right:40px; }
+}
+
+//Column classes
+@for $i from 1 through $grid-columns {
+  .col-#{$i}-xxs {
+    @include media(max-width $media__small) {
+      @include span-columns($i);
+      margin-bottom:$v-rhythm * 2;
+      &.no-margin { margin:0; }
+      &.no-bottom-margin { margin-bottom:0; }
+      &.top-margin { margin-top:$v-rhythm * 2; }
+    }
+  }
+  .col-#{$i}-xs {
+    @include media(max-width $media__medium) {
+      @include span-columns($i);
+      margin-bottom:$v-rhythm * 2;
+      &.no-margin { margin:0; }
+      &.no-bottom-margin { margin-bottom:0; }
+      &.top-margin { margin-top:$v-rhythm * 2; }
+    }
+  }
+//  .col-#{$i}-s {
+//    @include media($media__medium) { @include span-columns($i); }
+//    margin-bottom:$v-rhythm * 2;
+//    &.no-margin { margin:0; }
+//    &.no-bottom-margin { margin-bottom:0; }
+//    &.top-margin { margin-top:$v-rhythm * 2; }
+//  }
+  .col-#{$i}-m, .col-#{$i} {
+    @include media($media__medium) {
+      @include span-columns($i);
+      margin-bottom:$v-rhythm * 2;
+      &.no-margin { margin:0; }
+      &.no-bottom-margin { margin-bottom:0; }
+      &.top-margin { margin-top:$v-rhythm * 2; }
+    }
+  }
+  .col-#{$i}-l {
+    @include media($media__large) {
+      @include span-columns($i);
+      margin-bottom:$v-rhythm * 2;
+      &.no-margin { margin:0; }
+      &.no-bottom-margin { margin-bottom:0; }
+      &.top-margin { margin-top:$v-rhythm * 2; }
+    }
+
+    &.no-m-margin { @include media(max-width $media__medium) { margin:0; } }
+  }
+  .col-#{$i}-xl {
+    @include media($media__xlarge) {
+      @include span-columns($i);
+      margin-bottom:$v-rhythm * 2;
+      &.no-margin { margin:0; }
+      &.no-bottom-margin { margin-bottom:0; }
+      &.top-margin { margin-top:$v-rhythm * 2; }
+      &.no-m-margin { @include media(max-width $media__medium) { margin:0; } }
+    }
+  }
+}

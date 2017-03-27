@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2016-04-18 20:25:49
+FN:Stephanie Ayres
+N:Ayres;Stephanie;;;
+ORG:Fipra
+ADR;type=WORK:;;Tenter House\n45 Moorfields\nLondon\nEC2Y 9AE\nEngland;;;;
+EMAIL;type=INTERNET,pref:stephanie.ayres@fipra.com
+TEL;type=WORK,voice:+44 207 251 3801
+URL;type=WORK:http://fipradotcom.dev/our-people/stephanie-ayres/
+ROLE:Special Adviser
+TZ:+0000
+END:VCARD

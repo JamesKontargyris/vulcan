@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2017-03-02 14:01:20
+FN:Charlotte Pasquier
+N:Pasquier;Charlotte;;;
+ORG:Fipra
+ADR;type=WORK:;;Rue de la Loi 227\nBrussels \n1040\nBelgium;;;;
+EMAIL;type=INTERNET,pref:charlotte.pasquier@fipra.com
+TEL;type=WORK,voice:+32 2 613 2828
+URL;type=WORK:http://fipradotcom.dev/our-people/charlotte-pasquier/
+ROLE:Fipra  International
+TZ:+0000
+END:VCARD

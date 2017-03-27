@@ -1,0 +1,32 @@
+table:not(.no-style) {
+	margin: 0 0 1.5em;
+	width: 100%;
+  font-family: $font__sans;
+  text-align: left;
+  border:1px solid $color__fipra-periwinkle;
+
+  thead {
+    border:1px solid $color__fipra-blue;
+    font-weight: $font__black;
+    background-color: $color__fipra-blue;
+    color:white;
+    tr th {
+      padding:$v-rhythm / 1.5 em(10px);
+      border-right:1px solid darken($color__fipra-periwinkle, 35%);
+      &:last-child {
+        border-right:0;
+      }
+    }
+  }
+
+  tbody {
+    tr td, tr th {
+      padding:$v-rhythm / 1.5 em(10px);
+    }
+    tr {
+      &:nth-child(even) {
+        background-color: lighten($color__fipra-periwinkle, 10%);
+      }
+    }
+  }
+}

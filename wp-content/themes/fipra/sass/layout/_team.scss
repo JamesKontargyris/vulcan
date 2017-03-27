@@ -1,0 +1,209 @@
+//.team-group {
+//  @include clearfix;
+//
+//  //      Temporarily change gutter width for showcase blocks (reset further down)
+//  $reset-fg-gutter: $fg-gutter;
+//  $fg-gutter: golden-ratio(0em, 1);
+//
+//  .row-of-1 {
+//    .team-member {
+//      @include media($media__large) {
+//        @include span-columns(12);
+//        @include omega(1n);
+//      }
+//      .team-member-content {
+//        @include media($media__large) { min-height:em(300px); }
+//      }
+//    }
+//  }
+//
+//  .row-of-2 {
+//    .team-member {
+//      @include media($media__large) {
+//        @include span-columns(6);
+//        @include omega(2n);
+//      }
+//      .team-member-content {
+//        @include media($media__large) { min-height:em(300px); }
+//      }
+//    }
+//    @include media($media__medium) {
+//      .shift-half-col { @include shift(3); }
+//      .shift-1-col { @include shift(6); }
+//    }
+//  }
+//
+//  .row-of-3 {
+//    .team-member {
+//      @include media($media__large) {
+//        @include span-columns(4);
+//        @include omega(3n);
+//      }
+//      .team-member-content {
+////        @include media($media__large) { min-height:em(400px); }
+//      }
+//    }
+//    @include media($media__medium) {
+//      .shift-half-col { @include shift(2); }
+//      .shift-1-col { @include shift(4); }
+//      .shift-2-col { @include shift(8); }
+//    }
+//  }
+//
+//  .row-of-4 {
+//    .team-member {
+//      @include media(min-width $media__medium max-width $media__large) {
+//        @include span-columns(4); @include omega(3n);
+//      }
+//      @include media($media__large) {
+//        @include span-columns(3);
+//        @include omega(4n);
+//      }
+//      .team-member-content {
+//        @include media($media__large) { min-height:em(450px); }
+//      }
+//    }
+//    @include media($media__medium) {
+//      .shift-half-col { @include shift(1.5); }
+//      .shift-1-col { @include shift(3); }
+//      .shift-2-col { @include shift(6); }
+//      .shift-3-col { @include shift(9); }
+//    }
+//  }
+//
+//  .row-of-5 {
+//    .team-member {
+////      @include media(min-width $media__small max-width $media__medium) {
+////        @include span-columns(4); @include omega(3n);
+////      }
+//      @include media(min-width $media__medium max-width $media__large) {
+//        @include span-columns(4); @include omega(3n);
+//      }
+//      @include media($media__large) {
+//        @include span-columns(2.4); @include omega(5n);
+//      }
+//      .team-member-content {
+////        @include media($media__large) { min-height:em(450px); }
+//      }
+//    }
+//    @include media($media__medium) {
+//      .shift-half-col { @include shift(1.5); }
+//      .shift-1-col { @include shift(3); }
+//      .shift-2-col { @include shift(6); }
+//      .shift-3-col { @include shift(9); }
+//    }
+//  }
+//
+//  .row-of-6 {
+//    .team-member {
+//      @include media($media__large) {
+//        @include span-columns(2);
+//        @include omega(6n);
+//      }
+//      .team-member-content {
+//        @include media($media__large) { min-height:em(450px); }
+//      }
+//    }
+//    @include media($media__medium) {
+//      .shift-half-col { @include shift(1); }
+//      .shift-1-col { @include shift(2); }
+//      .shift-2-col { @include shift(4); }
+//      .shift-3-col { @include shift(6); }
+//      .shift-4-col { @include shift(8); }
+//    }
+//  }
+//
+//  //  Reset gutter width
+//  $fg-gutter: $reset-fg-gutter;
+//
+//  .team-member {
+//    @extend .white-box;
+//    @include clearfix;
+//
+//    padding:$v-rhythm em(18px);
+//    position:relative;
+//    @include font-size(18);
+//    &:not(:last-child) { margin-bottom: $v-rhythm; }
+////    @include linear-gradient(lighten($color__fipra-light-gray, 4%) 80%, darken($color__fipra-light-gray, 3%) 100%);
+////    @include media(min-width $media__small max-width $media__medium) {
+////      @include span-columns(6); @include omega(2n);
+////    }
+//
+//    p.bio { @include font-size(14); line-height:$v-rhythm * 1.5; }
+////    h4 { margin-bottom: $v-rhythm; }
+////    h5 {@include font-size(18); }
+//    h6 { margin-bottom:$v-rhythm / 2;
+//      @include media(max-width $media__large) { margin-top: $v-rhythm * 0.5; } }
+//    img {
+//      @include media(max-width $media__medium) { max-width:100px; margin-bottom:$v-rhythm; }
+//      @include media(max-width $media__small) { max-width:75px; margin-bottom:0; }
+//    }
+//
+//    ul.team-member-expertise {
+//      list-style: none;
+//      li { float:left; margin-right:em(4px); margin-bottom:em(4px) !important;
+//        a {
+//          display:block;
+//          width:em(30px);
+//          height:em(30px);
+//          @include font-size(21);
+//          line-height:36px;
+//          text-align: center;
+//          background-color:$color__fipra-blue;
+////          @include linear-gradient($color__fipra-turquoise 50%, darken($color__fipra-turquoise, 5%) 90%);
+//          @include border-top-radius(50%);
+//          @include border-bottom-radius(50%);
+//          color:white;
+//          &:hover {
+//            background-color: $color__fipra-blue-gray;
+////            @include linear-gradient($color__fipra-blue-gray 50%, darken($color__fipra-blue-gray, 5%) 90%);
+//          }
+//
+//          @include media($media__medium) { @include font-size(16); line-height:28px; }
+//        }
+//      }
+//    }
+//
+//  }
+//
+//}
+
+.team-carousel {
+  left: 0;
+  right: 0;
+  margin: auto;
+  .owl-wrapper {
+  }
+  .team-member {
+    margin:0; text-align:center;
+    .profile-photo { line-height:0; margin-bottom:$v-rhythm;
+//      border-bottom:1px solid darken($color__fipra-lighter-gray, 15%);
+//      img { border-radius: 50%; background-color: lighten($color__fipra-mid-gray, 3%); border:10px solid lighten($color__fipra-mid-gray, 3%); }
+    }
+    .profile-details { width:90%; margin:0 auto; line-height:1.4; }
+
+    h4 { font-weight: $font__bold; margin-top: $v-rhythm * 0.5; }
+  }
+  //a:hover img { opacity:0.8; margin-top:3px; margin-bottom:-3px; box-shadow: darken($color__fipra-light-gray, 15%) 0 0 5px; }
+}
+
+ul.team-member-expertise {
+  list-style: none;
+  li { display:inline-block; margin-right: em(4px); margin-bottom: em(4px) !important;
+    a {
+      display: block;
+      width: em(30px);
+      height: em(30px);
+      @include font-size(16);
+      line-height: 28px;
+      text-align: center;
+      background-color: $color__fipra-blue;
+      @include border-top-radius(50%);
+      @include border-bottom-radius(50%);
+      color: white;
+      &:hover {
+        background-color: $color__fipra-red;
+      }
+    }
+  }
+}

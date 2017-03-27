@@ -1,0 +1,71 @@
+#page-banner {
+  @include clearfix;
+  color:white;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:auto 650px;
+  @include media($media__medium) {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:100% auto;
+  }
+
+  #page-banner-content {
+    @include row();
+
+    padding:($v-rhythm * 2) em(40px);
+    @include media($media__small) { padding:($v-rhythm * 6) em(20px); }
+    @include media($media__large) { padding:($v-rhythm * 8) em(20px); }
+    @include media($media__xlarge) { padding:($v-rhythm * 10) em(20px); }
+
+
+    a {
+      display:inline;
+      margin-right: em(16px);
+      &:last-child { margin-right: 0; }
+    }
+
+    .lead {
+      @include media($media__medium) { @include font-size(18); }
+    }
+
+    &.light-text {
+      h1, h2, .lead {
+        color:white;
+        text-shadow:0px 1px 1px black;
+      }
+      .btn.primary {
+        text-shadow:none;
+        color:$color__fipra-blue;
+        background-color: white;
+      }
+      .btn.secondary {
+        color:white;
+        border-color: white;
+      }
+    }
+
+    &.dark-text {
+      h2 {
+//        color:$color__fipra-blue;
+      }
+      h1, .lead {
+        color:$color_soft-black;
+        text-shadow:0px 1px 1px $color__fipra-light-gray;
+      }
+      .btn.primary {
+//        text-shadow:0px 1px 3px lighten($color__fipra-blue, 10%);
+      }
+      .btn.secondary {
+        border:1px solid $color__fipra-blue;
+        color:$color__fipra-blue;
+        &:hover {
+          border:1px solid $color__fipra-blue-gray;
+          color:$color__fipra-blue-gray;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2016-04-18 20:00:06
+FN:Carol Brosgart
+N:Brosgart;Carol;;;
+ORG:Fipra
+ADR;type=WORK:;;3133 Lewiston Avenue\nBerkeley\nCalifornia\n94705\nUSA;;;;
+EMAIL;type=INTERNET,pref:carol.brosgart@fipra.com
+TEL;type=WORK,voice:+1 510 658 3739
+URL;type=WORK:http://fipradotcom.dev/our-people/carol-brosgart/
+ROLE:Special Adviser
+TZ:+0000
+END:VCARD

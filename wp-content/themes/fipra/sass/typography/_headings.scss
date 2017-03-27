@@ -1,0 +1,98 @@
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  font-family:$font__sans;
+  margin:0;
+
+  &.blue { color:$color__fipra-blue; }
+  &.grey { color:$color__fipra-blue-gray; }
+  &.turquoise { color:$color__fipra-turquoise; }
+  &.violet { color:$color__fipra-violet; }
+  &.center { text-align: center; }
+}
+
+h1, h2 { margin:0 0 $v-rhythm * 2 0; }
+h3, h4 {
+  margin-top:$v-rhythm * 2;
+  margin-bottom:$v-rhythm * 2;
+  @include media($media__medium) { margin-top:$v-rhythm * 3; margin-bottom:$v-rhythm * 2; }
+  &:first-child { margin-top:0; }
+}
+h5, h6 { margin:0 0 $v-rhythm 0; }
+
+h1 {
+  font-weight: $font__bold;
+  @include font-size(24);
+  line-height: $v-rhythm * 2.5;
+
+  @include media($media__large) { letter-spacing:-1px; @include font-size(30); line-height: $v-rhythm * 3.5; }
+
+  &.small {
+//    font-weight: $font__normal;
+    @include font-size(24);
+    @include media($media__medium) { @include font-size(21); }
+  }
+//  Style similar to H5 in .hero-banner and feature blocks
+  &.feature {
+    margin:0 0 $v-rhythm 0;
+    letter-spacing: normal;
+    @include font-size(16);
+    line-height: $v-rhythm * 2;
+    font-weight: $font__bold;
+    text-transform: uppercase;
+  }
+
+  &.upper { @include media(max-width $media__small) { @include font-size(21); margin-bottom:$v-rhythm; } }
+}
+
+h2 {
+  font-weight: $font__normal;
+  color:$color__fipra-blue-gray;
+  @include font-size(24);
+  line-height: $v-rhythm * 3;
+
+  @include media($media__large) { @include font-size(28); letter-spacing:-1px; line-height: $v-rhythm * 4; }
+
+  //  Style similar to H1 in .hero-banner and feature blocks
+  &.feature {
+    @include media($media__small) { @include font-size(28); line-height: $v-rhythm * 3; }
+    @include media($media__large) { @include font-size(38); line-height: $v-rhythm * 4; font-weight: $font__light; }
+  }
+}
+
+h3 {
+  font-weight: $font__normal;
+  @include font-size(21);
+  line-height: $v-rhythm * 2.5;
+  color:$color__fipra-dark-gray;
+
+  &.small {
+    //    font-weight: $font__normal;
+    @include font-size(18);
+    @include media($media__medium) { @include font-size(21); }
+  }
+
+  @include media($media__large) { @include font-size(24); line-height: $v-rhythm * 2.5; }
+}
+
+h4 {
+  font-weight: $font__normal;
+  @include font-size(18);
+  line-height: $v-rhythm * 2;
+  color:$color__fipra-dark-gray;
+
+  @include media($media__large) { @include font-size(21); line-height: $v-rhythm * 2.5; }
+
+}
+
+h5 { @include font-size(14); font-weight: $font__normal; text-transform: uppercase; letter-spacing:2px;
+  @include media($media__small) { @include font-size(16); }
+}
+
+h6 { @include font-size(14); font-weight: $font__bold; }
+
+h1, h2, h3, h4, h5, h6 {
+  &.no-margin { margin:0 !important; }
+  &.no-bottom-margin { margin-bottom:0 !important; }
+  &.no-top-margin { margin-top:0; }
+  &.upper { font-weight: $font__normal; text-transform: uppercase; @include media($media__medium) { letter-spacing: 7px; } }
+}

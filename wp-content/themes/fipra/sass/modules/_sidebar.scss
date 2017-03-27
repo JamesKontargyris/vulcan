@@ -1,0 +1,85 @@
+ul.sidebar-list {
+  list-style-type: none;
+
+  li {
+    display:block;
+    margin-bottom:$v-rhythm;
+
+    i { @include font-size(18); margin-right:em(12px); color:darken($color__fipra-light-gray, 40%); }
+    .sidebar-list-flag { width: em(32px); margin-right:em(5px); vertical-align: middle; }
+
+    a { display:block; padding:$v-rhythm / 2 em(12px);
+      background-color: white;
+//      border-bottom:1px solid darken($color__fipra-light-gray, 7%);
+      &:hover { background-color: $color__fipra-mid-gray; }
+    }
+
+    svg { width:24px; margin-top:6px; }
+  }
+
+}
+
+.sidebar-contacts-container {
+  @include clearfix;
+  background-color: $color__fipra-blue-gray;
+  color:lighten($color__fipra-blue-gray, 43%);
+  a { color:white; &:hover { opacity:0.7; } }
+  padding: $v-rhythm em(12px);
+  margin-bottom: $v-rhythm;
+
+  @include media(max-width $media__medium) {
+    h5 { text-align:center; }
+  }
+
+    &.ribbon {
+      @include media($media__medium) {
+        padding: $v-rhythm * 3 em(12px) $v-rhythm em(12px);
+        @include linear-gradient(darken($color__fipra-blue-gray, 10%) 0%, $color__fipra-blue-gray 20px);
+        margin-top:-$v-rhythm * 3;
+      }
+    }
+
+  .sidebar-contacts-group {
+
+    .sidebar-contact {
+      margin-top:$v-rhythm; border-top:1px solid lighten($color__fipra-blue-gray, 10%); padding-top: $v-rhythm;
+
+
+      &:first-child { border:0; padding-top:0; }
+
+      img { max-width: 100px; display:block; margin-bottom:$v-rhythm;
+        @include radial-gradient(white, $color__fipra-light-gray);
+        @include media($media__medium) { float:left; margin-right:em(18px); }
+      }
+
+      @include media(max-width $media__medium) {
+        width:100%; text-align:center;
+        h5 { text-align:center; }
+        img { max-width:150px; margin:0 auto 10px auto; }
+      }
+    }
+
+  }
+}
+
+.taxonomy-list {
+  list-style-type: none;
+  li {
+    margin:0 0 5px 0;
+    @include font-size(14);
+    line-height:2;
+    background-color: rgba(white, 0.3);
+    padding:5px 15px;
+
+  }
+}
+
+.sidebar-tag {
+  @include font-size(12);
+  line-height:1.3;
+  /*display:inline-block;
+  padding:6px 6px;
+  border-radius: 4px;
+  background-color:$color__fipra-light-gray;
+  margin-bottom:5px;*/
+}

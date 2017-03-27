@@ -1,0 +1,25 @@
+.page-header {
+  @include outer-container($container__content-width);
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+
+  .btn {
+    display:block;
+    margin-right:0;
+    @include media($media__small) {
+      margin-right:em(6px);
+      display: inline-block;
+    }
+  }
+}
+
+.page-header > #primary {
+  padding-top:0 !important;
+}

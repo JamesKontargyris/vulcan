@@ -1,0 +1,43 @@
+.testimonial-group {
+  text-align: center;
+  &.left { text-align: left !important; }
+
+  blockquote.testimonial {
+    margin-bottom: 0;
+    &:not(:last-child) { margin-bottom: $v-rhythm * 2; }
+
+    .quote {
+      width: 100%;
+      padding: $v-rhythm 0;
+      font-weight: $font__normal;
+      letter-spacing: 1px;
+//      color: $color__fipra-dark-gray;
+      @include font-size(16);
+      font-style: normal;
+      line-height: $v-rhythm * 2;
+      @include media($media__medium) {
+        @include font-size(18);
+        padding-left:$column * 3;
+        padding-right:$column * 3;
+      }
+
+    }
+
+    .author {
+      @include clearfix;
+      padding: $v-rhythm * 1.5 0;
+//      color: $color__fipra-red;
+      text-transform: uppercase;
+      @include font-size(14);
+      font-style: normal;
+      line-height: $v-rhythm * 1.5;
+      //      margin-top:$v-rhythm * 2;
+      padding: $v-rhythm 0;
+
+
+      @include media($media__medium) {
+        display: block;
+      }
+    }
+  }
+}

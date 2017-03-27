@@ -1,0 +1,43 @@
+//Fipra colours
+$color__fipra-blue: #00257f;
+$color__fipra-soft-blue: desaturate(lighten($color__fipra-blue, 25%), 60%);
+$color__fipra-blue-gray: saturate(#5F697F, 3%);
+$color__fipra-periwinkle: #ccd3e5;
+$color__fipra-violet: #6f5ce5;
+$color__fipra-turquoise: #14b1cc;
+$color__fipra-gold: #e5c75c;
+$color__fipra-lighter-gray: #eceef2;
+$color__fipra-light-gray: #dde0e1;
+$color__fipra-mid-gray: lighten(#d1d5d9, 5%);
+$color__fipra-dark-gray: darken(saturate($color__fipra-blue-gray, 5%), 12%);
+$color__fipra-orange: #DE8A56;
+$color__fipra-light-orange: #fce5c3;
+$color__fipra-red: #cc0a12;
+
+$color_soft-black: #222;
+$color_black: #000;
+$color_soft-white: darken(white, 3%);
+$color_white: #fff;
+
+//Underscores colours
+$color__background-body: $color__fipra-lighter-gray;
+$color__background-screen: #f1f1f1;
+$color__background-hr: darken($color__fipra-lighter-gray, 17%);
+$color__background-button: #e6e6e6;
+$color__background-pre: lighten($color__fipra-periwinkle, 10%);
+$color__background-ins: $color__fipra-periwinkle;
+
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: $color__fipra-blue;
+$color__link-visited: $color__fipra-violet;
+$color__link-hover: $color__fipra-red;
+$color__text-main: #222222;
+
+$color__border-button: #ccc #ccc #bbb;
+$color__border-button-hover: #ccc #bbb #aaa;
+$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-input: #ccc;
+$color__border-abbr: #666;
+

@@ -1,0 +1,51 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+//  background: url('img/noise_bg.png') top left repeat, $color__fipra-light-gray;
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: lighten($color__background-hr, 12%);
+	border: 0;
+	height: 1px;
+	margin:$v-rhythm * 2 0;
+    &.small { margin:$v-rhythm 0; }
+    &.medium { margin:$v-rhythm * 4 0; }
+    &.large { margin:$v-rhythm * 6 0; }
+    &.hidden { background-color:transparent;}
+    &.no-top-margin { margin-top:0; }
+    &.no-bottom-margin { margin-bottom:0; }
+}
+
+
+img {
+  height: auto; /* Make sure images are scaled correctly. */
+  max-width: 100%; /* Adhere to container width. */
+}
+
+strong {
+  &.black { font-weight: $font__black; }
+}
+
+@import "lists";
+@import "tables";
+@import "buttons";
+@import "testimonials";

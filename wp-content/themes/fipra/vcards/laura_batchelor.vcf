@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2016-04-18 19:45:45
+FN:Laura Batchelor
+N:Batchelor;Laura;;;
+ORG:Fipra
+ADR;type=WORK:;Rue de la Loi 227<br />
+Brussels<br />
+1040<br />
+Belgium;;;;;
+EMAIL;type=INTERNET,pref:laura.batchelor@fipra.com
+TEL;type=WORK,voice:+32 2 613 2828
+URL;type=WORK:http://fipradotcom.dev/our-people/laura-batchelor/
+ROLE:Director, Fipra  International
+TZ:+0000
+END:VCARD

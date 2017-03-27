@@ -1,0 +1,27 @@
+.job-listing-block {
+  @extend .white-box;
+  padding:$v-rhythm em(18px);
+
+  margin-top:$v-rhythm;
+
+  .job-listing-title { @include font-size(22); font-weight: $font__bold; line-height: $v-rhythm * 2.5; }
+
+  .job-listing-meta { font-weight: $font__bold; color:$color__fipra-blue-gray; margin-bottom:$v-rhythm; }
+
+  .job-listing-overview { @include font-size(14);}
+
+  .job-listing-timestamp {
+    margin-bottom:$v-rhythm;
+    @include font-size(14);
+    color:$color__fipra-blue-gray;
+    @include media($media__medium) { text-align: right; margin-bottom:0; }
+  }
+}
+
+.job-listing {
+  p.lead { font-weight: $font__bold; }
+}
+
+.careers-content-area {
+  .owl-controls { text-align: left !important; }
+}

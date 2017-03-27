@@ -1,0 +1,47 @@
+#content-container.unit {
+
+  #hero {
+    //    @include media($media__medium) { min-height:em(400px); }
+    //    @include media(max-width $media__small) { background:$color__fipra-blue !important; }
+
+    .full-width-block-content {
+      .meta { font-style: italic; @include font-size(18); }
+      img {
+        height: 36px;
+        margin-right:em(12px);
+        //margin-bottom: $v-rhythm;
+        vertical-align: top;
+        margin-top:4px;
+      }
+      img, h1 { @include media($media__medium) { display: inline-block; } }
+
+    }
+  }
+
+  #team-menu-container {
+    .full-width-block-content-container {
+      //padding-bottom: 0;
+
+      .svg-icon {
+        float:left;
+        &:not(:last-child) { margin-right: rem(6px); }
+        background-color: $color__fipra-blue;
+        width: 32px; height: 32px;
+        @include border-top-radius(50%);
+        @include border-bottom-radius(50%);
+        @include media(max-width $media__medium) { display:none; }
+        &:hover { opacity: 0.7; }
+        svg { fill:white; width:60%; }
+      }
+    }
+  }
+
+}
+
+.google-map-missing {
+  display:none;
+  @include font-size(13);
+  font-style: italic;
+  line-height:1.1;
+}
+

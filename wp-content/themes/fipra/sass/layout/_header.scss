@@ -1,0 +1,122 @@
+#mobile-search-container {
+  @include media($media__medium) { display:none; }
+  background-color: $color__fipra-blue;
+  #mobile-search {
+    display:none;
+    @extend .content-area;
+    padding-top:$v-rhythm;
+    padding-bottom:$v-rhythm;
+    form#searchform {
+      @include row();
+      @include span-columns(12);
+      input[type=text] { width: 100%; }
+    }
+  }
+}
+
+#sticky-header {
+  z-index:999;
+  @include media(max-width $media__medium) { position:fixed; top:0; left:0; width:100%; }
+}
+
+#header-container {
+  @include clearfix;
+  z-index:99999;
+  background-color: white;
+  @include media($media__medium) { background-color: $color__fipra-lighter-gray; }
+//  @include linear-gradient(white 90%, darken(white, 5%) 100%);
+//  @include linear-gradient(darken(white, 3%) 90%, darken(white, 5%) 100%);
+  &.with-border { @include media($media__medium) { border-top:$color__fipra-blue solid 3px; } }
+
+  header.site-header {
+    @include row();
+    @extend .content-area;
+
+    #site-branding-container {
+      @include span-columns(3);
+      padding:$v-rhythm 0;
+      @include media($media__medium) { @include span-columns(2); padding:0; }
+
+      h1.site-title {
+        line-height: 1rem;
+        margin-bottom:0;
+        img { width:40px; height:40px; }
+        @include media($media__medium) {
+          margin:$v-rhythm * 1.3 0 0 0;
+          img { width:64px; height:64px; }
+        }
+      }
+    }
+
+    #site-navigation-container {
+      position:relative;
+      @include span-columns(9);
+      float:right;
+      width:auto;
+      @include media($media__medium) { @include span-columns(10); }
+
+      .search-global-network-button {
+        display:none;
+        @include media($media__medium) {
+          display:block;
+          position:absolute;
+          top:0;
+          right:0;
+          z-index:3;
+        }
+      }
+      a.global-network-button {
+        display: inline-block;
+        z-index:5;
+        float:left;
+        color:white;
+        border-radius: 0 0 6px 6px;
+        background-color: $color__fipra-blue;
+        padding:$v-rhythm em(12) $v-rhythm / 2 em(12);
+        @include transition(all 0.2s ease-out);
+        @include linear-gradient($color__fipra-blue 60%, darken($color__fipra-blue, 7%) 100%);
+        &.reverse-background { @include linear-gradient(darken($color__fipra-blue-gray, 15%) 0%, $color__fipra-blue-gray 25%);}
+        &:hover {
+          padding-top:$v-rhythm * 1.5;
+          text-decoration: none;
+        }
+        &:focus {
+          outline:0;
+        }
+      }
+
+      button.menu-toggle {
+        float:right;
+        margin-top:$v-rhythm * 2;
+      }
+    }
+
+  }
+
+}
+
+.searchform {
+  float:left;
+  position:relative;
+  width:auto;
+  margin-top:8px;
+  margin-right:5px;
+  input[type=text] {
+    padding-right:40px;
+    width:200px;
+  }
+  .button-search {
+    @include button-reset();
+    @include font-size(18);
+    position:absolute;
+    top:6px;
+    right:6px;
+    color:$color__fipra-blue-gray;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    &:hover {
+      color:$color__fipra-blue;
+    }
+  }
+}

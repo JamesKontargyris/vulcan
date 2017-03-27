@@ -1,0 +1,163 @@
+.showcase {
+  @include clearfix();
+  margin: 0;
+
+  .showcase-block {
+    @include clearfix();
+    margin-bottom: $v-rhythm * 2;
+    &:last-child { margin-bottom: 0; }
+
+    .showcase-block-content {
+      padding: $v-rhythm * 2 em(18px);
+      &.large-text {
+        @include media($media__medium) { @include font-size(18); }
+      }
+    }
+
+    a {
+      .showcase-block-content:hover {
+        opacity: 0.7;
+      }
+    }
+
+    h3, h4 { font-weight: $font__bold; }
+
+    .featured-image {
+      img { width: 100%; }
+    }
+
+    &.center {
+      text-align: center;
+    }
+
+    &.bg {
+      .showcase-block-content { @extend .white-box; }
+    }
+
+    &.outline {
+      .showcase-block-content { border: 1px solid darken($color__fipra-lighter-gray, 7%); }
+    }
+
+  }
+
+  //      Temporarily change gutter width for showcase blocks (reset further down)
+  $reset-fg-gutter: $fg-gutter;
+  $fg-gutter: golden-ratio(1em, 1);
+
+  .row-of-1 {
+    .showcase-block {
+      @include media($media__medium) {
+        @include span-columns(12);
+        @include omega(1n);
+      }
+      .showcase-block-content {
+        @include row();
+        @include media($media__medium) { width: 75%; margin: 0 auto; }
+      }
+    }
+  }
+
+  .row-of-2 {
+    .showcase-block {
+      @include media($media__medium) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+      .showcase-block-content {
+        @include row();
+      }
+    }
+    @include media($media__medium) {
+      .shift-half-col { @include shift(3); }
+      .shift-1-col { @include shift(6); }
+    }
+  }
+
+  .row-of-3 {
+    .showcase-block {
+      @include media($media__medium) {
+        @include span-columns(4);
+        @include omega(3n);
+      }
+      .showcase-block-content {
+      }
+    }
+    @include media($media__medium) {
+      .shift-half-col { @include shift(2); }
+      .shift-1-col { @include shift(4); }
+      .shift-2-col { @include shift(8); }
+    }
+  }
+
+  .row-of-4 {
+    .showcase-block {
+
+      @include media(min-width $media__small max-width $media__medium) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+      @include media($media__medium) {
+        @include span-columns(3);
+        @include omega(4n);
+      }
+
+    }
+    @include media($media__medium) {
+      .shift-half-col { @include shift(1.5); }
+      .shift-1-col { @include shift(3); }
+      .shift-2-col { @include shift(6); }
+      .shift-3-col { @include shift(9); }
+    }
+  }
+
+  .row-of-5 {
+    .showcase-block {
+
+      @include media(min-width $media__small max-width $media__medium) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+      @include media($media__medium) {
+        @include span-columns(2.4);
+        @include omega(5n);
+      }
+
+    }
+    @include media($media__medium) {
+      .shift-half-col { @include shift(1.5); }
+      .shift-1-col { @include shift(3); }
+      .shift-2-col { @include shift(6); }
+      .shift-3-col { @include shift(9); }
+    }
+  }
+
+  .row-of-1, .row-of-2, .row-of-3, .row-of-4, .row-of-5 {
+    @include clearfix;
+    margin-bottom: $v-rhythm * 2;
+    &:last-child { margin-bottom: 0; }
+
+    .showcase-block.full-width {
+      @include span-columns(12);
+      @include omega(1n);
+    }
+  }
+
+  //  Reset gutter width
+  $fg-gutter: $reset-fg-gutter;
+
+  &.list {
+    @include clearfix();
+    @include row();
+    text-align: center;
+    color: $color__fipra-blue-gray;
+    @include media($media__medium) {
+      text-align: left;
+    }
+    .showcase-block-content {
+      @include media($media__medium) {
+        float: left;
+        @include span-columns(8);
+      }
+    }
+  }
+}

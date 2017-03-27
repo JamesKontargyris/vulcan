@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2016-04-18 20:09:01
+FN:Lars Abel
+N:Abel;Lars;;;
+ORG:Fipra
+ADR;type=WORK:;;Åboulevard 7, 1. tv.\nCopenhagen V\nDK-1635\nDenmark;;;;
+EMAIL;type=INTERNET,pref:lars.abel@fipra.com
+TEL;type=WORK,voice:+45 35 39 43 44
+URL;type=WORK:http://fipradotcom.dev/our-people/lars-abel/
+ROLE:Fipra Denmark
+TZ:+0000
+END:VCARD

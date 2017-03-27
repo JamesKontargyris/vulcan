@@ -1,0 +1,143 @@
+#footer-global-network-container {
+  clear:both;
+//  @extend .page-nav;
+//  border-top:1px solid darken($color__fipra-light-gray, 5%);
+  background-color:$color__fipra-blue-gray;
+  border-top:1px solid lighten($color__fipra-blue-gray, 9%);
+  border-bottom:1px solid lighten($color__fipra-blue-gray, 9%);
+  padding:$v-rhythm * 0.75 0;
+
+  #footer-global-network {
+    @extend .content-area;
+    color:white;
+    text-align: center;
+    padding-top: $v-rhythm;
+    padding-bottom: $v-rhythm;
+
+    label {
+      display:block;
+      @include font-size(21);
+      margin-top:em(3px);
+      margin-bottom:$v-rhythm;
+      @include media($media__large) {
+        float:left;
+        margin-right:em(20px);
+        margin-bottom:0;
+      }
+    }
+
+    .select-wrapper {
+      overflow:hidden;
+
+      select {
+        width:100%;
+        color:$color_soft-black;
+        padding:$v-rhythm * 0.5 em(20px);
+        optgroup {
+          background-color:$color__fipra-light-gray;
+        }
+        text-align: left;
+        @include font-size(16);
+        border:0;
+        background-color: white;
+
+        @include media($media__medium) { @include font-size(16); }
+      }
+    }
+  }
+}
+
+#footer-container {
+  @include clearfix;
+  color:lighten($color__fipra-blue-gray, 40%);
+  background: $color__fipra-blue-gray;
+
+  h5 { color:lighten($color__fipra-blue-gray, 30%); }
+  a:not(&.btn) { color:white;
+    &:hover { opacity:0.7; }
+  }
+
+  footer {
+    @extend .content-area;
+
+    .footer-section {
+      @include span-columns(12);
+      padding:$v-rhythm * 2 em(24px) 0 0;
+      @include font-size(14);
+      @include media($media__medium) {
+        @include span-columns(4);
+        padding-bottom: $v-rhythm * 2;
+      }
+
+      a:not(.btn) {
+        color:white;
+        &:hover {
+          color:darken(white, 10%);
+        }
+      }
+    }
+  }
+
+}
+
+#site-info-container {
+  @include clearfix;
+  font-family: $font__sans;
+  @include font-size(12);
+  background-color: $color__fipra-dark-gray;
+  border-top:1px solid lighten($color__fipra-blue-gray, 9%);
+
+  .site-info {
+    @extend .content-area;
+    a { color: white;
+      &:hover { opacity:0.7; }
+    }
+    @include row();
+    color:lighten($color__fipra-blue-gray, 35%);
+    padding-top:$v-rhythm;
+    padding-bottom: $v-rhythm * 2;
+
+    .site-info-section {
+      @include span-columns(12);
+      padding:$v-rhythm;
+      @include font-size(14);
+      @include media($media__medium) { @include span-columns(6); }
+
+      ul.menu {
+        list-style: none;
+        @include font-size(12);
+        margin:0;
+        li {
+          float:left;
+          line-height:1;
+          &:not(:last-child) {
+            padding:0 5px 0 0;
+            margin-right: 5px;
+            border-right:1px solid #BFC5D2;
+          }
+        }
+      }
+
+    }
+
+    .footer-social-links {
+      text-align:left;
+      @include media($media__medium) { text-align: right; }
+      a {
+        @include font-size(20);
+        display:inline-block;
+        margin-right:em(4px);
+        border-radius:3px;
+        text-shadow: 0 -2px 0px $color__fipra-blue-gray;
+        padding:$v-rhythm / 2 em(12px);
+        background-color:lighten($color__fipra-blue-gray, 10%);
+        border-bottom:2px solid darken($color__fipra-blue-gray, 20%);
+        color:white;
+        @include transition(all 0.3s);
+        @include media($media__medium) { margin:0 0 0 em(4px); }
+        &:hover { opacity:0.7; }
+
+      }
+    }
+  }
+}
