@@ -26,3 +26,4 @@ desktop.ini
 node_modules/
 .idea/
 local-config.php
+wp-config.php
