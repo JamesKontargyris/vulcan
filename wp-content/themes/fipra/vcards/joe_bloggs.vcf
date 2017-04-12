@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+PRODID:-//class_vCard from WhatsAPI//NONSGML Version 1//EN
+REV:2017-04-12 11:41:55
+FN:Joe Bloggs
+N:Bloggs;Joe;;;
+ORG:Fipra
+ADR;type=WORK:;;Room 67\n14 Tottenham Court Road\nLondon\nEngland\nW1T 1JY;;;;
+EMAIL;type=INTERNET,pref:joe.bloggs@fipra.com
+TEL;type=WORK,voice:+44 1234 567890
+URL;type=WORK:http://funits.site/team/joe-bloggs/
+ROLE:Managing Director
+TZ:+0000
+END:VCARD

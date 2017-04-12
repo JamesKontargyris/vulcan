@@ -86,19 +86,19 @@
     @include media(max-width $media__small) {
       @include span-columns($i);
       margin-bottom:$v-rhythm * 2;
-      &.no-margin { margin:0; }
-      &.no-bottom-margin { margin-bottom:0; }
-      &.top-margin { margin-top:$v-rhythm * 2; }
     }
+    &.no-margin { margin:0; }
+    &.no-bottom-margin { margin-bottom:0; }
+    &.top-margin { margin-top:$v-rhythm * 2; }
   }
   .col-#{$i}-xs {
     @include media(max-width $media__medium) {
       @include span-columns($i);
       margin-bottom:$v-rhythm * 2;
-      &.no-margin { margin:0; }
-      &.no-bottom-margin { margin-bottom:0; }
-      &.top-margin { margin-top:$v-rhythm * 2; }
     }
+    &.no-margin { margin:0; }
+    &.no-bottom-margin { margin-bottom:0; }
+    &.top-margin { margin-top:$v-rhythm * 2; }
   }
 //  .col-#{$i}-s {
 //    @include media($media__medium) { @include span-columns($i); }
@@ -110,20 +110,20 @@
   .col-#{$i}-m, .col-#{$i} {
     @include media($media__medium) {
       @include span-columns($i);
-      &.no-margin { margin:0; }
-      &.no-bottom-margin { margin-bottom:0; }
-      &.top-margin { margin-top:$v-rhythm * 2; }
     }
+    &.no-margin { margin:0; }
+    &.no-bottom-margin { margin-bottom:0; }
+    &.top-margin { margin-top:$v-rhythm * 2; }
     margin-bottom:$v-rhythm * 2;
   }
   .col-#{$i}-l {
     @include media($media__large) {
       @include span-columns($i);
       margin-bottom:$v-rhythm * 2;
-      &.no-margin { margin:0; }
-      &.no-bottom-margin { margin-bottom:0; }
-      &.top-margin { margin-top:$v-rhythm * 2; }
     }
+    &.no-margin { margin:0; }
+    &.no-bottom-margin { margin-bottom:0; }
+    &.top-margin { margin-top:$v-rhythm * 2; }
 
     &.no-m-margin { @include media(max-width $media__medium) { margin:0; } }
   }
@@ -131,10 +131,10 @@
     @include media($media__xlarge) {
       @include span-columns($i);
       margin-bottom:$v-rhythm * 2;
-      &.no-margin { margin:0; }
-      &.no-bottom-margin { margin-bottom:0; }
-      &.top-margin { margin-top:$v-rhythm * 2; }
-      &.no-m-margin { @include media(max-width $media__medium) { margin:0; } }
     }
+    &.no-margin { margin:0; }
+    &.no-bottom-margin { margin-bottom:0; }
+    &.top-margin { margin-top:$v-rhythm * 2; }
+    &.no-m-margin { @include media(max-width $media__medium) { margin:0; } }
   }
 }

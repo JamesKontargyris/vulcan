@@ -33,6 +33,9 @@ get_header(); global $post; ?>
                         case 'news':
 	                        get_template_part( 'content', 'news' );
 	                        break;
+	                    case 'team':
+		                    get_template_part( 'content', 'team' );
+		                    break;
                         default:
 	                        get_template_part( 'content', 'page' );
                     }

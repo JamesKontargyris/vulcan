@@ -126,11 +126,13 @@ function layout_our_team($fipriots) {
 /**
  * Return the full name for the current Fipriot
  *
+ * @param null $id
+ *
  * @return bool|string
  */
-function full_name() {
-    $first_name = get_field('first_name');
-    $last_name = get_field('last_name');
+function full_name($id = null) {
+    $first_name = $id ? get_field('first_name', $id) : get_field('first_name');
+    $last_name = $id ? get_field('last_name', $id) : get_field('last_name');
 
     if($first_name && $last_name) { return $first_name . ' ' . $last_name; }
     return false;

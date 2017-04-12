@@ -356,6 +356,10 @@ function fipra_customized_css()
             margin-right:12px;
         }
 
+        .team-member__position {
+            color: <?php echo get_theme_mod('primary_color', '#00257f'); ?>
+        }
+
 
 
         .footer-section a:link,

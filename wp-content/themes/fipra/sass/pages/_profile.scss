@@ -15,7 +15,6 @@
         position:relative;
         @include media($media__small) { text-align:left; padding-left:200px; }
         @include media($media__medium) { padding-left:270px; }
-        h4 { color: lighten($color__fipra-blue-gray, 35%) !important; }
         img {
           display:block;
           margin:0 auto;
