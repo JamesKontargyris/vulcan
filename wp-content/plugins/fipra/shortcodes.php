@@ -75,9 +75,9 @@ function page_testimonials() {
     $string = '';
 
     if ( $page_testimonials ) {
-        $string .= '<div class="full-width-block-container with-content-bar small-padding">';
-        $string .= '<div class="full-width-block-content-container dark-grey">';
-        $string .= '<div class="full-width-block-content">';
+        $string .= '<div class="full-width-block-container" style="background:url(' . get_template_directory_uri() . '/img/bg_quotemarks.jpg) center no-repeat; background-size:cover;">';
+        $string .= '<div class="full-width-block-content-container large-padding custom-bg--tertiary-translucent">';
+        $string .= '<div class="full-width-block-content custom-text--tertiary-contrast">';
         if(get_field('testimonials_title', $page_id)) { $string .= '<h5 class="center">' . get_field('testimonials_title', $page_id) . '</h5>'; }
         $string .= '<div id="testimonial-carousel" class="testimonial-group carousel">';
 
@@ -86,7 +86,7 @@ function page_testimonials() {
             $t_id = $t->ID;
 
             $string .= '<blockquote class="testimonial">';
-            $string .= '<div class="quote">' . get_field('quote', $t_id) . '</div>';
+            $string .= '<div class="quote"><em>&quot;' . get_field('quote', $t_id) . '&quot;</em></div>';
             $string .= '<footer class="author">';
             $string .= '<div class="author-details">';
             $string .= '<span class="name">' . get_field('name', $t_id) . '</span><br/>';

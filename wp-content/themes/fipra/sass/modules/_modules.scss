@@ -378,4 +378,18 @@ a.page-numbers {
   border-bottom: 0 !important;
 }
 
+.homepage-block {
+  @include media($media__medium) {
+    @include font-size(18);
+  }
+}
+.homepage-block__calls-to-action {
+  margin-top:$v-rhythm;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 //.hide { display:none; }

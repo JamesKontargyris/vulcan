@@ -27,12 +27,13 @@
 // Non-hero version
 .full-width-block-content-container {
   height: 100%;
-  padding-top: $v-rhythm * 2; padding-right: 0; padding-left: 0; padding-bottom: $v-rhythm * 2;
-  @include media($media__medium) { padding-top: $v-rhythm * 3; padding-right: 0; padding-left: 0; padding-bottom: $v-rhythm * 3; }
+  padding-top: $v-rhythm * 2; padding-right: 0; padding-left: 0; padding-bottom: 0;
+  @include media($media__medium) { padding-top: $v-rhythm * 3; padding-right: 0; padding-left: 0; padding-bottom: $v-rhythm; }
 
   &.page-width { @extend .content-area; }
   &.collapse { padding-top: 0; padding-right: 0; padding-left: 0; padding-bottom: 0; }
-  &.small-padding { padding-top: $v-rhythm * 3 !important; padding-right: 0 !important; padding-left: 0 !important; padding-bottom: $v-rhythm * 3 !important; }
+  &.small-padding { padding-top: $v-rhythm * 3 !important; padding-right: 0 !important; padding-left: 0 !important; padding-bottom: $v-rhythm !important; }
+  &.large-padding { padding-top: $v-rhythm * 5 !important; padding-right: 0 !important; padding-left: 0 !important; padding-bottom: $v-rhythm * 3 !important; }
 }
 
 .hero, #hero {
@@ -70,104 +71,11 @@
 
 .full-width-block-container, .full-width-block-content-container {
 
-//  color:darken($color__fipra-lighter-gray, 46%);
-  color:darken($color__fipra-lighter-gray, 55%);
-  h1, h2, h3, h4, h5, h6 { color:$color__fipra-dark-gray !important; }
-
-  &.blue {
-    background-color: $color__fipra-blue;
-    color:lighten($color__fipra-blue, 65%);
-    &.bg-image { background-color: rgba($color__fipra-blue, 0.8); }
-  }
-
-  &.dark-grey {
-    background-color: $color__fipra-dark-gray;
-    color:lighten($color__fipra-blue-gray, 34%);
-    &.bg-image { background-color: rgba(saturate(darken($color__fipra-blue-gray, 20%), 5%), 0.8); }
-  }
-
-  &.grey {
-    background-color: $color__fipra-blue-gray;
-    color:lighten($color__fipra-blue-gray, 42%);
-    &.bg-image { background-color: rgba(saturate(darken($color__fipra-blue-gray, 5%), 5%), 0.9); }
-  }
-
-  &.light-grey {
-    background-color: $color__fipra-light-gray;
-    color:darken($color__fipra-light-gray, 50%);
-    h1, h2, h3, h4, h5, h6 { color:$color__fipra-dark-gray !important; }
-    li.active a { color:$color_soft-black !important;}
-    &.bg-image { background-color: rgba(saturate($color__fipra-light-gray, 3%), 0.9); }
-  }
-
-  &.periwinkle {
-    background-color: $color__fipra-periwinkle;
-    color:darken($color__fipra-periwinkle, 46%);
-    h1, h2, h3, h4, h5, h6 { color:$color_soft-black !important; }
-    &.bg-image { background-color: rgba(saturate($color__fipra-periwinkle, 3%), 0.8); }
-  }
-
-  &.turquoise {
-    background-color: $color__fipra-turquoise;
-    color:lighten($color__fipra-turquoise, 46%);
-    li.active { background:rgba(white, 0.2) !important; }
-    &.bg-image { background-color: rgba(saturate($color__fipra-turquoise, 3%), 0.8); }
-  }
-
-  &.violet {
-    background-color: $color__fipra-violet;
-    color:lighten($color__fipra-violet, 32%);
-    li.active { background:rgba(white, 0.1) !important; }
-    &.bg-image { background-color: rgba(saturate($color__fipra-violet, 4%), 0.8); }
-  }
-
-  &.gold {
-    background-color: $color__fipra-gold;
-    h1, h2, h3, h4, h5, h6 { color:$color_soft-black !important; }
-    color:darken($color__fipra-gold, 45%);
-    li.active a { color:$color_soft-black !important;}
-    &.bg-image { background-color: rgba(saturate($color__fipra-gold, 4%), 0.9); }
-  }
-
-  &.faint-grey {
-    background-color: $color__fipra-lighter-gray;
-    h1, h2, h3, h4, h5, h6 { color:$color_soft-black !important; }
-    color:$color_soft-black;
-    li.active a { color:$color_soft-black !important;}
-    &.bg-image { background-color: rgba($color__fipra-lighter-gray, 0.7); @include media($media__medium) { background-color: rgba($color__fipra-lighter-gray, 0.3); } }
-  }
-
-  &.blue, &.dark-grey, &.grey, &.turquoise, &.violet {
-    h1, h2, h3, h4, h5, h6 { color:white !important; }
-    a { color: white; &:hover { color:darken(white, 10%);} }
-    .btn { @extend .btn-white; }
-    li.active a { background:rgba(white, 0.1); color:white !important; }
-
-    //    Owl Carousel pagination is dark grey
-    .owl-page {
-      span { background:white !important; }
-    }
-    //    Owl Carousel navigation controls
-    .owl-buttons {
-      .owl-prev, .owl-next { background:white !important; i { color:$color__fipra-blue; } }
-    }
-  }
-
-  &.periwinkle, &.light-grey {
-    h1, h2, h3, h4, h5, h6 { color:$color_soft-black; }
-    li.active a { color:$color_soft-black !important;}
-
-    //    Owl Carousel navigation controls
-    .owl-buttons {
-      .owl-prev, .owl-next { background:$color__fipra-blue !important; i { color:white; } }
-    }
-
     @include media(max-width $media__large) {
       .entry {
         &:not(:last-child) { border-bottom:1px solid rgba(black, 0.1) !important; }
       }
     }
-  }
 }
 
 .full-width-block-content {

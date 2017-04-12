@@ -1,36 +1,16 @@
 .page-nav {
   @include clearfix;
   @include font-size(13);
-  background-color: $color__fipra-light-gray;
+  background-color: #e4e4e4;
   border-top:1px solid darken($color__fipra-mid-gray, 5%);
 
   &.with-padding { padding:$v-rhythm 0; }
   &.with-top-padding { padding:$v-rhythm 0 0 0; }
-
-  &.dark-grey { background-color: $color__fipra-dark-gray;
-    color:lighten($color__fipra-dark-gray, 40%);
-    border-top:1px solid darken($color__fipra-dark-gray, 5%);
-    a { color: white; &:hover { color:darken(white, 10%); } }
-  }
-
-  &.grey {
-    background-color: $color__fipra-blue-gray;
-    color: lighten($color__fipra-blue-gray, 40%);
-    border-top:1px solid darken($color__fipra-blue-gray, 5%);
-    a {
-      color: white;
-      &:hover {
-        color: darken(white, 10%);
-      }
-    }
-  }
 }
 
 #breadcrumbs {
-  color:darken(white, 35%);
+  border-bottom: #d6d6d6 solid 1px;
   .breadcrumbs-content { @extend .content-area; }
   .divider { padding:0 em(4px); }
-  .active { color:$color__fipra-red; }
-
   @include media(max-width $media__medium) { display:none; }
 }

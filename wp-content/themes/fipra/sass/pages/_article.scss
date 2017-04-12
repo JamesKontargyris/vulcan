@@ -2,7 +2,7 @@
   @include clearfix;
   // padding:$v-rhythm * 1.5;
   // border:1px solid darken($color__fipra-light-gray, 10%);
-  margin-bottom:$v-rhythm * 3;
+  margin-bottom:$v-rhythm * 2;
   text-align: center;
 
   @include media(min-width $media__small) {
@@ -10,7 +10,7 @@
   }
 
   @include media(min-width $media__medium) {
-    margin-bottom:$v-rhythm * 5;
+    margin-bottom:$v-rhythm * 3;
   }
 }
 
@@ -62,7 +62,7 @@
   color:$color__fipra-blue-gray;
   @include font-size(12);
   line-height:1.4;
-  font-style: italic;
+  margin:6px 0;
 
   @include media(min-width $media__medium) {
     letter-spacing: 1px;

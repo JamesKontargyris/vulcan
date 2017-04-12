@@ -49,13 +49,6 @@
 
 #footer-container {
   @include clearfix;
-  color:lighten($color__fipra-blue-gray, 40%);
-  background: $color__fipra-blue-gray;
-
-  h5 { color:lighten($color__fipra-blue-gray, 30%); }
-  a:not(&.btn) { color:white;
-    &:hover { opacity:0.7; }
-  }
 
   footer {
     @extend .content-area;
@@ -68,40 +61,25 @@
         @include span-columns(4);
         padding-bottom: $v-rhythm * 2;
       }
-
-      a:not(.btn) {
-        color:white;
-        &:hover {
-          color:darken(white, 10%);
-        }
-      }
     }
   }
-
 }
 
 #site-info-container {
   @include clearfix;
   font-family: $font__sans;
   @include font-size(12);
-  background-color: $color__fipra-dark-gray;
-  border-top:1px solid lighten($color__fipra-blue-gray, 9%);
 
   .site-info {
     @extend .content-area;
-    a { color: white;
-      &:hover { opacity:0.7; }
-    }
     @include row();
-    color:lighten($color__fipra-blue-gray, 35%);
     padding-top:$v-rhythm;
     padding-bottom: $v-rhythm * 2;
 
     .site-info-section {
       @include span-columns(12);
-      padding:$v-rhythm;
+      padding:$v-rhythm 0;
       @include font-size(14);
-      @include media($media__medium) { @include span-columns(6); }
 
       ul.menu {
         list-style: none;

@@ -515,3 +515,153 @@ function format_article_tags()
 
 	return false;
 }
+
+function hex2RGB($hexStr, $returnAsString = false, $seperator = ',') {
+	$hexStr = preg_replace("/[^0-9A-Fa-f]/", '', $hexStr); // Gets a proper hex string
+	$rgbArray = array();
+	if (strlen($hexStr) == 6) { //If a proper hex code, convert using bitwise operation. No overhead... faster
+		$colorVal = hexdec($hexStr);
+		$rgbArray['red'] = 0xFF & ($colorVal >> 0x10);
+		$rgbArray['green'] = 0xFF & ($colorVal >> 0x8);
+		$rgbArray['blue'] = 0xFF & $colorVal;
+	} elseif (strlen($hexStr) == 3) { //if shorthand notation, need some string manipulations
+		$rgbArray['red'] = hexdec(str_repeat(substr($hexStr, 0, 1), 2));
+		$rgbArray['green'] = hexdec(str_repeat(substr($hexStr, 1, 1), 2));
+		$rgbArray['blue'] = hexdec(str_repeat(substr($hexStr, 2, 1), 2));
+	} else {
+		return false; //Invalid hex color code
+	}
+	return $returnAsString ? implode($seperator, $rgbArray) : $rgbArray; // returns the rgb string or the associative array
+}
+function RGB2HSV ($R, $G, $B)  // RGB Values:Number 0-255
+{                                 // HSV Results:Number 0-1
+	$HSL = [];
+
+	$var_R = ($R / 255);
+	$var_G = ($G / 255);
+	$var_B = ($B / 255);
+
+	$var_Min = min($var_R, $var_G, $var_B);
+	$var_Max = max($var_R, $var_G, $var_B);
+	$del_Max = $var_Max - $var_Min;
+
+	$V = $var_Max;
+
+	if ($del_Max == 0)
+	{
+		$H = 0;
+		$S = 0;
+	}
+	else
+	{
+		$S = $del_Max / $var_Max;
+
+		$del_R = ( ( ( $var_Max - $var_R ) / 6 ) + ( $del_Max / 2 ) ) / $del_Max;
+		$del_G = ( ( ( $var_Max - $var_G ) / 6 ) + ( $del_Max / 2 ) ) / $del_Max;
+		$del_B = ( ( ( $var_Max - $var_B ) / 6 ) + ( $del_Max / 2 ) ) / $del_Max;
+
+		if      ($var_R == $var_Max) $H = $del_B - $del_G;
+		else if ($var_G == $var_Max) $H = ( 1 / 3 ) + $del_R - $del_B;
+		else if ($var_B == $var_Max) $H = ( 2 / 3 ) + $del_G - $del_R;
+
+		if ($H<0) $H++;
+		if ($H>1) $H--;
+	}
+
+	$HSL['H'] = $H;
+	$HSL['S'] = $S;
+	$HSL['V'] = $V;
+
+	return $HSL;
+}
+function HSV2RGB(array $hsv) {
+	$H = $hsv['H'];
+	$S = $hsv['S'];
+	$V = $hsv['V'];
+
+	//1
+	$H *= 6;
+	//2
+	$I = floor($H);
+	$F = $H - $I;
+	//3
+	$M = $V * (1 - $S);
+	$N = $V * (1 - $S * $F);
+	$K = $V * (1 - $S * (1 - $F));
+	//4
+	switch ($I) {
+		case 0:
+			list($R,$G,$B) = array($V,$K,$M);
+			break;
+		case 1:
+			list($R,$G,$B) = array($N,$V,$M);
+			break;
+		case 2:
+			list($R,$G,$B) = array($M,$V,$K);
+			break;
+		case 3:
+			list($R,$G,$B) = array($M,$N,$V);
+			break;
+		case 4:
+			list($R,$G,$B) = array($K,$M,$V);
+			break;
+		case 5:
+		case 6: //for when $H=1 is given
+			list($R,$G,$B) = array($V,$M,$N);
+			break;
+	}
+	return array($R, $G, $B);
+}
+
+function RGB2hex($rgb) {
+	$hex = "#";
+	$hex .= str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT);
+	$hex .= str_pad(dechex($rgb[1]), 2, "0", STR_PAD_LEFT);
+	$hex .= str_pad(dechex($rgb[2]), 2, "0", STR_PAD_LEFT);
+
+	return $hex; // returns the hex value including the number sign (#)
+}
+
+// Helps to work out the lightness of a colour, so we place suitable text over the top
+function luma($rgb = [])
+{
+	return (0.2126 * $rgb['red'] + 0.7152 * $rgb['green'] + 0.0722 * $rgb['blue']) / 255;
+}
+
+function adjustColorLightenDarken($color_code,$percentage_adjuster = 0) {
+	$percentage_adjuster = round($percentage_adjuster/100,2);
+	if(is_array($color_code)) {
+		$r = $color_code["r"] - (round($color_code["r"])*$percentage_adjuster);
+		$g = $color_code["g"] - (round($color_code["g"])*$percentage_adjuster);
+		$b = $color_code["b"] - (round($color_code["b"])*$percentage_adjuster);
+
+		return array("r"=> round(max(0,min(255,$r))),
+		             "g"=> round(max(0,min(255,$g))),
+		             "b"=> round(max(0,min(255,$b))));
+	}
+	else if(preg_match("/#/",$color_code)) {
+		$hex = str_replace("#","",$color_code);
+		$r = (strlen($hex) == 3)? hexdec(substr($hex,0,1).substr($hex,0,1)):hexdec(substr($hex,0,2));
+		$g = (strlen($hex) == 3)? hexdec(substr($hex,1,1).substr($hex,1,1)):hexdec(substr($hex,2,2));
+		$b = (strlen($hex) == 3)? hexdec(substr($hex,2,1).substr($hex,2,1)):hexdec(substr($hex,4,2));
+		$r = round($r - ($r*$percentage_adjuster));
+		$g = round($g - ($g*$percentage_adjuster));
+		$b = round($b - ($b*$percentage_adjuster));
+
+		return "#".str_pad(dechex( max(0,min(255,$r)) ),2,"0",STR_PAD_LEFT)
+		       .str_pad(dechex( max(0,min(255,$g)) ),2,"0",STR_PAD_LEFT)
+		       .str_pad(dechex( max(0,min(255,$b)) ),2,"0",STR_PAD_LEFT);
+
+	}
+}
+
+function subtleText($hex, $direction = 'lighter') {
+	$palette = Palette::Hex($hex);
+	if($direction == 'lighter') {
+		$palette->addLum(0.5)->addSat(-0.8);
+	} elseif($direction == 'darker') {
+		$palette->addLum(-0.4)->addSat(-0.5);
+	}
+
+	return $palette->render();
+}

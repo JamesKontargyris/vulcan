@@ -1,6 +1,5 @@
 #mobile-search-container {
   @include media($media__medium) { display:none; }
-  background-color: $color__fipra-blue;
   #mobile-search {
     display:none;
     @extend .content-area;
@@ -22,8 +21,10 @@
 #header-container {
   @include clearfix;
   z-index:99999;
-  background-color: white;
-  @include media($media__medium) { background-color: $color__fipra-lighter-gray; }
+  border-bottom: #d6d6d6 solid 1px;
+  @include media($media__medium) {
+    padding: 20px 0;
+  }
 //  @include linear-gradient(white 90%, darken(white, 5%) 100%);
 //  @include linear-gradient(darken(white, 3%) 90%, darken(white, 5%) 100%);
   &.with-border { @include media($media__medium) { border-top:$color__fipra-blue solid 3px; } }
@@ -33,24 +34,23 @@
     @extend .content-area;
 
     #site-branding-container {
-      @include span-columns(3);
+      @include span-columns(4);
       padding:$v-rhythm 0;
       @include media($media__medium) { @include span-columns(2); padding:0; }
 
       h1.site-title {
         line-height: 1rem;
         margin-bottom:0;
-        img { width:40px; height:40px; }
+        img { width:auto; max-height:40px; }
         @include media($media__medium) {
-          margin:$v-rhythm * 1.3 0 0 0;
-          img { width:64px; height:64px; }
+          img { width:auto; max-height:64px; }
         }
       }
     }
 
     #site-navigation-container {
       position:relative;
-      @include span-columns(9);
+      @include span-columns(8);
       float:right;
       width:auto;
       @include media($media__medium) { @include span-columns(10); }
@@ -95,15 +95,22 @@
 
 }
 
+.desktop-search-social {
+  float:right;
+
+  @include media(max-width $media__medium) {
+    display:none;
+  }
+}
+
 .searchform {
   float:left;
   position:relative;
   width:auto;
-  margin-top:8px;
-  margin-right:5px;
   input[type=text] {
     padding-right:40px;
     width:200px;
+    @include font-size(14);
   }
   .button-search {
     @include button-reset();
@@ -118,5 +125,9 @@
     &:hover {
       color:$color__fipra-blue;
     }
+  }
+
+  @include media(max-width $media__medium) {
+    display:none;
   }
 }

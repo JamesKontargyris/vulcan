@@ -11,7 +11,7 @@
  */
 
 
-get_header(); ?>
+get_header(); global $post; ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -23,27 +23,27 @@ get_header(); ?>
 
         <?php include('inc/hero_banner.php'); ?>
 
-        <?php $slug = get_slug(); ?>
-
-        <?php if($slug == 'our-network') { include('inc/our_network_jump_to_menu.php'); } ?>
-
-        <?php if(get_field('page_layout') == 'page_width') : ?>
-
-                <?php get_template_part( 'content', 'page' ); ?>
-
-        <?php else : ?>
-
+        <?php if(get_field('page_layout') != 'page_width') : ?>
             <div id="site-content-container">
-
                 <div id="site-content">
-
-                    <?php get_template_part( 'content', 'page' ); ?>
-
-                </div><!-- #site-content -->
-            </div><!-- #site-content-container -->
-
         <?php endif; ?>
 
+                <?php
+                    switch ($post->post_name) {
+                        case 'news':
+	                        get_template_part( 'content', 'news' );
+	                        break;
+                        default:
+	                        get_template_part( 'content', 'page' );
+                    }
+                    ?>
+
+            <?php if(get_field('page_layout') != 'page_width') : ?>
+                    </div><!-- #site-content -->
+                </div><!-- #site-content-container -->
+            <?php endif; ?>
+
+        <?php echo page_testimonials(); ?>
     </div><!-- #content-container   -->
 
 <?php endwhile; // end of the loop. ?>

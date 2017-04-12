@@ -2,9 +2,6 @@
   display:inline-block;
   border-radius:3px;
   @include font-size(16);
-  color:$color__fipra-blue;
-  &:hover { color: $color__fipra-blue-gray; }
-  background-color: $color__fipra-periwinkle;
   padding: $v-rhythm * 0.25 rem(16px);
   margin-bottom: $v-rhythm * 0.5;
   margin-right: rem(16px);
@@ -16,24 +13,16 @@
   &.btn-extra-small { @include font-size(12); padding: $v-rhythm * 0.1 rem(16px) * 0.5; margin-right: rem(16px) * 0.5; }
 
   &.primary {
-    background-color: $color__fipra-blue;
-    color: white;
-    text-shadow:0px -1px 0px darken($color__fipra-blue, 30%);
     @include transition(all 0.2s);
-    border-bottom:2px solid darken($color__fipra-blue, 15%);
-    &:hover { opacity:0.7; color:white; }
+    &:hover { opacity:0.7; }
 
     &.btn-white {
-      text-shadow:0px -1px 0px darken(white, 15%);
       border-bottom:2px solid darken(white, 30%);
       background-color: white; color:$color__fipra-blue;
     }
   }
 
   &.secondary {
-    background-color:rgba(255,255,255,0);
-    border: 1px solid $color__fipra-blue;
-    color: $color__fipra-blue;
     @include transition(all 0.2s);
     &:hover {
       opacity:0.7;
@@ -53,6 +42,16 @@
   &.btn-omega { margin-right:0 !important; }
 
   &.full-width { display:block; }
+}
+
+.btn-social-media {
+  float:left;
+  border:1px solid #d1d1d1;
+  @include font-size(21);
+  line-height:0;
+  margin-left:5px;
+  border-radius: 5px;
+  padding:5px;
 }
 
 .owl-prev, .owl-next { cursor: pointer; }

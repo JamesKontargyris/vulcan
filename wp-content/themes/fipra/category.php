@@ -15,9 +15,9 @@ get_header();
 
     <div id="hero" class="full-width-block-container">
         <!--            Set the content block height using the header_text_block_height field. If a featured image is set, override this height with the content-bar class-->
-        <div class="full-width-block-content-container grey short">
-            <div class="full-width-block-content center narrow">
-                <h1 class="upper no-bottom-margin">News and Analysis in: <?php single_cat_title(); ?></h1>
+        <div class="full-width-block-content-container custom-bg--primary short">
+            <div class="full-width-block-content center">
+                <h1 class="upper no-bottom-margin custom-text--primary-contrast">News Stories in <?php single_cat_title(); ?></h1>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@ get_header();
 		                    <?php include('inc/article-extract.php'); ?>
                         <?php endwhile; ?>
                     <?php else : ?>
-                        No news or analysis found in this category.
+                        No news stories found in this category.
                     <?php endif; ?>
 
                     <?php article_pagination($articles); ?>
@@ -48,9 +48,7 @@ get_header();
             <div id="secondary">
                 <aside>
                     <h5>Categories</h5>
-                    <ul class="taxonomy-list no-bottom-margin">
-                        <?php wp_list_categories(['show_count' => 1, 'title_li' => '', 'orderby' => 'name']); ?>
-                    </ul>
+                    <?php wp_list_categories(['show_count' => 1, 'title_li' => '', 'orderby' => 'name', 'style' => '']); ?>
                 </aside>
                 <aside>
                     <h5>Tags</h5>

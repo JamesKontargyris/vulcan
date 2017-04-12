@@ -15,7 +15,7 @@
 #content-container {
   @include clearfix;
   width:100%;
-  @include media(max-width $media__medium) { padding-top:64px; }
+  @include media(max-width $media__medium) { padding-top:68px; }
 
   &.with-border { padding-top:$v-rhythm; border-top:1px solid $color__fipra-light-gray; }
 
@@ -110,11 +110,11 @@
   .col-#{$i}-m, .col-#{$i} {
     @include media($media__medium) {
       @include span-columns($i);
-      margin-bottom:$v-rhythm * 2;
       &.no-margin { margin:0; }
       &.no-bottom-margin { margin-bottom:0; }
       &.top-margin { margin-top:$v-rhythm * 2; }
     }
+    margin-bottom:$v-rhythm * 2;
   }
   .col-#{$i}-l {
     @include media($media__large) {

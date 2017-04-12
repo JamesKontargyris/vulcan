@@ -1,10 +1,24 @@
+aside .menu {
+  .menu-item {
+    margin-bottom: 0;
+    a {
+      display: block;
+      padding-bottom: $v-rhythm;
+    }
+  }
+  .sub-menu {
+    padding-left:20px;
+    margin:0;
+  }
+}
+
 .main-navigation {
   clear: both;
   display: block;
   float: right;
   width: 100%;
+  font-weight: $font__bold;
   @include media(max-width $media__medium) { width: 100%; }
-  @include media($media__medium) { margin-top: $v-rhythm * 3; }
 
   ul {
     display: none;
@@ -19,26 +33,22 @@
       position: relative;
       @include media($media__medium) {
         float: left;
-        &:not(:last-child) { margin-right: em(40px); }
+        &:not(:last-child) { margin-right: em(30px); }
       }
       @include font-size(16);
       & > a {
         display: block;
         text-decoration: none;
-        padding: $v-rhythm * 1.25 0 $v-rhythm * 0.75;
-        color: $color__fipra-blue;
+        padding-top: $v-rhythm;
 //        font-weight: $font__bold;
       }
       &.current-menu-item > a,
       &.current_page_ancestor > a,
       &.current-menu-ancestor > a {
-        font-weight: $font__bold;
-        color: $color__fipra-red;
-        border-bottom: 1px solid $color__fipra-red;
-        padding: $v-rhythm * 1.25 0 $v-rhythm * 0.75 - rem(1px);
+        padding-top: $v-rhythm;
       }
 
-      &:hover > a, &.focus > a { color: $color__fipra-red; }
+      &:hover > a, &.focus > a { opacity:0.7; }
     }
 
     // Start of second level
@@ -46,12 +56,11 @@
       float: left;
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
       background-color: white;
-      border-top: 1px solid $color__fipra-red;
       position: absolute;
-      top: $v-rhythm * 5;
+      top: $v-rhythm * 4;
       left: -999em;
       z-index: 99999;
-      margin-top: -1px;
+      margin-top: -10px;
       width: 225px;
 
 
@@ -62,12 +71,10 @@
         width: 100%;
         &:hover > ul, &.focus > ul { right: 100%; }
         &:hover { background-color: lighten($color__fipra-light-gray, 6%); }
-        a { display: block; padding: $v-rhythm / 2 em(24px); font-weight: $font__normal; }
+        a { display: block; padding: $v-rhythm / 2 em(24px); font-weight: $font__bold; }
         &.current-menu-item > a,
         &.current_page_ancestor > a,
         &.current_menu_ancestor > a {
-          font-weight: $font__bold;
-          color: $color__fipra-red;
           border-bottom: 0;
           padding: $v-rhythm / 2 em(24px);
         }
@@ -93,7 +100,7 @@
 .main-navigation {
   //  Mobile nav buttons
   .btn {
-    margin-top: $v-rhythm * 1.2;
+    margin-top: $v-rhythm * 0.75;
     margin-right: em(5px);
     padding: ($v-rhythm / 2) em(12px);
     cursor: pointer;
@@ -115,7 +122,6 @@
           display:block;
           text-align: center;
           padding:$v-rhythm em(10px);
-          color:$color__fipra-blue;
         }
         &.menu-item-has-children > a:after { font-family: 'iconfonts'; content: " \e871"; }
 //        Second level

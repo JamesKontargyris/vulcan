@@ -5,6 +5,10 @@
  * @package fipradotcom
  */
 
+// Customization settings / sections / controls
+require_once 'inc/customization.php';
+require_once 'inc/custom_post_types.php';
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -19,6 +23,9 @@ if (!function_exists('fipradotcom_setup')) :
 	 * Note that this function is hooked into the after_setup_theme hook, which
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
+	 */
+	/**
+	 *
 	 */
 	function fipradotcom_setup()
 	{
@@ -51,6 +58,11 @@ if (!function_exists('fipradotcom_setup')) :
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support('post-thumbnails');
+
+		/*
+		 * Enable support for the custom logo option in the customiser
+		 */
+		add_theme_support('custom-logo');
 
 		// This theme uses wp_nav_menu() in three locations.
 		register_nav_menus(
@@ -143,54 +155,27 @@ function fipradotcom_widgets_init()
 		'after_title' => '</h5>',
 	]);
 	register_sidebar([
-		'name' => __('Site Info Bar Left', 'fipradotcom'),
-		'id' => 'site-info-left',
-		'description' => 'Displays widgets in the left-half of the site info bar below the page footer (1st row on mobile devices)',
+		'name' => __('Site Info Bar', 'fipradotcom'),
+		'id' => 'site-info',
+		'description' => 'Displays widgets in the site info bar below the page footer',
 		'before_widget' => '',
 		'after_widget' => '',
 		'before_title' => '',
 		'after_title' => '',
-	]);
-	register_sidebar([
-		'name' => __('Site Info Bar Right', 'fipradotcom'),
-		'id' => 'site-info-right',
-		'description' => 'Displays widgets in the right-half of the site info bar below the page footer (2nd row on mobile devices)',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-	]);
-	register_sidebar([
-		'name' => __('Expertise Area', 'fipradotcom'),
-		'id' => 'expertise-area',
-		'description' => 'Displays widgets in the sidebar on all individual expertise area pages',
-		'before_widget' => '<aside>',
-		'after_widget' => '</aside>',
-		'before_title' => '<h5>',
-		'after_title' => '</h5>',
-	]);
-	register_sidebar([
-		'name' => __('Fipriot Profile', 'fipradotcom'),
-		'id' => 'fipriot-profile',
-		'description' => 'Displays widgets in the sidebar on all individual Fipriot profile pages',
-		'before_widget' => '<aside>',
-		'after_widget' => '</aside>',
-		'before_title' => '<h5>',
-		'after_title' => '</h5>',
-	]);
-	register_sidebar([
-		'name' => __('Unit', 'fipradotcom'),
-		'id' => 'unit',
-		'description' => 'Displays widgets in the sidebar on all individual Unit pages',
-		'before_widget' => '<aside>',
-		'after_widget' => '</aside>',
-		'before_title' => '<h5>',
-		'after_title' => '</h5>',
 	]);
 	register_sidebar([
 		'name' => __('Dynamic Code and Content', 'fipradotcom'),
 		'id' => 'dynamic-code',
 		'description' => 'Dynamic code added after the body tag on each page',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
+	]);
+	register_sidebar([
+		'name' => __('Header', 'fipradotcom'),
+		'id' => 'header',
+		'description' => 'Display widgets in the header next to the search bar on desktop screens',
 		'before_widget' => '',
 		'after_widget' => '',
 		'before_title' => '',
@@ -202,18 +187,18 @@ add_action('widgets_init', 'fipradotcom_widgets_init');
 
 // unregister widgets we won't use
 function remove_default_widgets() {
-	unregister_widget('WP_Widget_Pages');
+	unregister_widget('WP_Widget_Meta');
+	unregister_widget('WP_Widget_Tag_Cloud');
+	unregister_widget('WP_Widget_Recent_Comments');
+	/*unregister_widget('WP_Widget_Pages');
 	unregister_widget('WP_Widget_Calendar');
 	unregister_widget('WP_Widget_Archives');
 	unregister_widget('WP_Widget_Links');
-	unregister_widget('WP_Widget_Meta');
-	unregister_widget('WP_Widget_Search');
+	unregister_widget('WP_Widget_Search');*/
 //    unregister_widget('WP_Widget_Text');
 	unregister_widget('WP_Widget_Categories');
 	unregister_widget('WP_Widget_Recent_Posts');
-	unregister_widget('WP_Widget_Recent_Comments');
 	unregister_widget('WP_Widget_RSS');
-	unregister_widget('WP_Widget_Tag_Cloud');
 //    unregister_widget('WP_Nav_Menu_Widget');
 }
 add_action('widgets_init', 'remove_default_widgets', 11);
@@ -293,96 +278,10 @@ add_action('init', 'case_insensitive_url');
 
 add_filter('get_search_form', 'fipra_sitewide_search_form');
 
-
-
-
 // Post Thumbnail sizes
 add_image_size( 'profile-photo', 300, 300, true );
 add_image_size( 'banner', 1500, 1000, true );
-add_image_size( 'unit-flag', 64, 64 );
 add_image_size( 'article', 600, 600, true );
-
-/**
- * Registering meta sections for taxonomies
- *
- * All the definitions of meta sections are listed below with comments, please read them carefully.
- * Note that each validation method of the Validation Class MUST return value.
- *
- * You also should read the changelog to know what has been changed
- *
- */
-
-/**
- * Register meta boxes for taxonomies
- *
- * @return void
- */
-function fipradotcom_register_taxonomy_meta_boxes()
-{
-	// Make sure there's no errors when the plugin is deactivated or during upgrade
-	if ( ! class_exists( 'RW_Taxonomy_Meta' ) )
-		return;
-
-	$meta_sections = array();
-
-	// Flag for languages
-	$meta_sections[] = [
-		'title'      => '',             // section title
-		'taxonomies' => array('language'), // list of taxonomies. Default is array('category', 'post_tag'). Optional
-		'id'         => 'flag_section',                 // ID of each section, will be the option name
-
-		'fields' => [                             // List of meta fields
-			// IMAGE
-			[
-				'name' => 'Flag',
-				'id'   => 'image',
-				'type' => 'image',
-			],
-		],
-	];
-
-//  Type of expertise on Spads
-	$meta_sections[] = [
-		'title'      => '',             // section title
-		'taxonomies' => array('spad_expertise'), // list of taxonomies. Default is array('category', 'post_tag'). Optional
-		'id'         => 'expertise_type_section',                 // ID of each section, will be the option name
-
-		'fields' => [                             // List of meta fields
-//            Radio buttons
-			array(
-				'name'    => 'Expertise Type',
-				'id'      => 'expertise_type',
-				'type'    => 'radio',
-				'options' => array(                     // Array of value => label pairs for radio options
-					'policy' => 'Policy-based',
-					'location' => 'Country- or location-based'
-				),
-			),
-		],
-	];
-
-	foreach ( $meta_sections as $meta_section )
-	{
-		new RW_Taxonomy_Meta( $meta_section );
-	}
-}
-// Hook to 'admin_init' to make sure the class is loaded before
-// (in case using the class in another plugin)
-add_action( 'admin_init', 'fipradotcom_register_taxonomy_meta_boxes' );
-
-
-// Remove languages taxonomy metabox from sidebar of Fipriots add/edit pages
-function remove_language_meta() {
-	remove_meta_box( 'tagsdiv-language' , 'fipriot' , 'side' );
-}
-add_action( 'admin_menu' , 'remove_language_meta' );
-
-// Remove continents taxonomy metabox from sidebar of Units add/edit pages
-function remove_continent_meta() {
-	remove_meta_box( 'tagsdiv-continent' , 'unit' , 'side' );
-}
-add_action( 'admin_menu' , 'remove_continent_meta' );
-
 
 function get_master_page_id() {
 	global $wp_query;
@@ -436,7 +335,7 @@ function my_add_ul_class_on_insert( $postarr ) {
 function pseudo_archive_rewrite(){
 	// Add the slugs of the pages that are using a Global Template to simulate being an "archive" page
 	$pseudo_archive_pages = array(
-		"news-and-analysis-archive",
+		"news-archive",
 	);
 
 	$slug_clause = implode( "|", $pseudo_archive_pages );
@@ -446,14 +345,14 @@ function pseudo_archive_rewrite(){
 add_action( 'init', 'pseudo_archive_rewrite' );
 
 /*
- * Add custom post types (just article as of 25/01/2017) to category and tag paginated results
+ * Add custom post types (just news as of 10/04/2017) to category and tag paginated results
  */
 function add_custom_types($query) {
 	if (is_category() || is_tag() && empty($query->query_vars['suppress_filters'])) {
 		$query->set('post_type',[
 			'post',
 			'nav_menu_item',
-			'article',
+			'news',
 		]);
 		return $query;
 	}
@@ -501,4 +400,62 @@ function setPostViews($postID) {
 }
 // Remove issues with prefetching adding extra views
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// Add custom brand colours to WYSIWYG editor
+function fipra_change_tinymce_colors( $init ) {
+	$default_colours = '
+        "000000", "Black",
+        "993300", "Burnt orange",
+        "333300", "Dark olive",
+        "003300", "Dark green",
+        "003366", "Dark azure",
+        "000080", "Navy Blue",
+        "333399", "Indigo",
+        "333333", "Very dark gray",
+        "800000", "Maroon",
+        "FF6600", "Orange",
+        "808000", "Olive",
+        "008000", "Green",
+        "008080", "Teal",
+        "0000FF", "Blue",
+        "666699", "Grayish blue",
+        "808080", "Gray",
+        "FF0000", "Red",
+        "FF9900", "Amber",
+        "99CC00", "Yellow green",
+        "339966", "Sea green",
+        "33CCCC", "Turquoise",
+        "3366FF", "Royal blue",
+        "800080", "Purple",
+        "999999", "Medium gray",
+        "FF00FF", "Magenta",
+        "FFCC00", "Gold",
+        "FFFF00", "Yellow",
+        "00FF00", "Lime",
+        "00FFFF", "Aqua",
+        "00CCFF", "Sky blue",
+        "993366", "Brown",
+        "C0C0C0", "Silver",
+        "FF99CC", "Pink",
+        "FFCC99", "Peach",
+        "FFFF99", "Light yellow",
+        "CCFFCC", "Pale green",
+        "CCFFFF", "Pale cyan",
+        "99CCFF", "Light sky blue",
+        "CC99FF", "Plum",
+        "FFFFFF", "White"
+        ';
+	$custom_colours = '"' .
+	                  str_replace('#', '', get_theme_mod('primary_color', '00257f')) . '", "Primary Colour", "' .
+	                  str_replace('#', '', get_theme_mod('secondary_color', '14b1cc')) . '", "Secondary Colour", "' .
+	                  str_replace('#', '', get_theme_mod('tertiary_color', '5F697F')) . '", "Tertiary Colour", "' .
+	                  str_replace('#', '', get_theme_mod('body_text_color', '222222')) . '", "Body Text Colour", "' .
+	                  str_replace('#', '', get_theme_mod('body_background_color', 'ffffff')) . '", "Body Background Colour",
+    ';
+	$init['textcolor_map'] = '['.$default_colours.','.$custom_colours.']';
+	$init['textcolor_rows'] = 6; // expand colour grid to 6 rows
+	return $init;
+}
+add_filter('tiny_mce_before_init', 'fipra_change_tinymce_colors');
+
 

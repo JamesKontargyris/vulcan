@@ -30,8 +30,8 @@
       color: white;
       &:hover { color: $color__fipra-red; }
     }
-    .owl-prev { left: 12px; }
-    .owl-next { right: 12px; }
+    .owl-prev { left: 12px; margin-top:-16px; }
+    .owl-next { right: 12px; margin-top:-16px; }
   }
 
   #home-hero-carousel {

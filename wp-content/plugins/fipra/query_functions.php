@@ -356,54 +356,12 @@ function get_articles($articles_per_page) {
 	$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 	$args = [
-		'post_type' => 'article',
+		'post_type' => 'news',
 		'post_status' => 'publish',
 		'orderby' => 'date',
 		'order' => 'DESC',
 		'posts_per_page' => $articles_per_page,
 		'paged' => $paged,
-	];
-
-	$articles = new WP_Query($args);
-	wp_reset_postdata();
-
-	return $articles;
-}
-
-function get_news_articles($articles_per_page, $exclude_ids = [])
-{
-	global $post;
-
-	$args = [
-		'post_type' => 'article',
-		'post_status' => 'publish',
-		'orderby' => 'date',
-		'order' => 'DESC',
-		'posts_per_page' => $articles_per_page,
-		'post__not_in' => $exclude_ids,
-		'meta_key' => 'article_type',
-		'meta_value' => 'news',
-	];
-
-	$articles = new WP_Query($args);
-	wp_reset_postdata();
-
-	return $articles;
-}
-
-function get_analysis_articles($articles_per_page, $exclude_ids = [])
-{
-	global $post;
-
-	$args = [
-		'post_type' => 'article',
-		'post_status' => 'publish',
-		'orderby' => 'date',
-		'order' => 'DESC',
-		'posts_per_page' => $articles_per_page,
-		'post__not_in' => $exclude_ids,
-		'meta_key' => 'article_type',
-		'meta_value' => 'analysis',
 	];
 
 	$articles = new WP_Query($args);
@@ -419,7 +377,7 @@ function get_articles_by_category($cat_id, $articles_per_page, $exclude_ids = []
 	$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 	$args = [
-		'post_type' => 'article',
+		'post_type' => 'news',
 		'post_status' => 'publish',
 		'orderby' => 'date',
 		'order' => 'DESC',
@@ -442,7 +400,7 @@ function get_articles_by_tag($tag_id, $articles_per_page, $exclude_ids = [])
 	$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 	$args = [
-		'post_type' => 'article',
+		'post_type' => 'news',
 		'post_status' => 'publish',
 		'orderby' => 'date',
 		'order' => 'DESC',
@@ -463,13 +421,48 @@ function get_popular_articles($articles_per_page, $exclude_ids = [])
 	global $post;
 
 	$args = [
-		'post_type' => 'article',
+		'post_type' => 'news',
 		'post_status' => 'publish',
 		'orderby' => 'meta_value_num',
 		'meta_key' => 'post_views_count',
 		'order' => 'DESC',
 		'posts_per_page' => $articles_per_page,
 		'post__not_in' => $exclude_ids,
+	];
+
+	$articles = new WP_Query($args);
+	wp_reset_postdata();
+
+	return $articles;
+}
+
+function get_recent_articles_for_widget($count = 5)
+{
+	global $post;
+
+	$args = [
+		'post_type' => 'news',
+		'post_status' => 'publish',
+		'posts_per_page' => $count,
+		'orderby' => 'date'
+	];
+
+	$articles = new WP_Query($args);
+	wp_reset_postdata();
+
+	return $articles;
+}
+
+function get_popular_articles_for_widget($count = 5)
+{
+	global $post;
+
+	$args = [
+		'post_type' => 'news',
+		'post_status' => 'publish',
+		'posts_per_page' => $count,
+		'meta_key' => 'post_views_count',
+		'orderby' => 'meta_value_num'
 	];
 
 	$articles = new WP_Query($args);

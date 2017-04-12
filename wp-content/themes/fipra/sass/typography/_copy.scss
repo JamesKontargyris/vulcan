@@ -1,8 +1,15 @@
+body {
+  line-height:1.7;
+}
 p {
   margin-top:0;
   margin-bottom: $v-rhythm * 2;
   &.no-margin { margin:0; }
   &.no-bottom-margin { margin-bottom:0; }
+
+  &:last-of-type {
+    margin-bottom:0;
+  }
 }
 
 dfn, cite, em, i {
@@ -87,4 +94,8 @@ p {
     color:$color__fipra-blue-gray; line-height:$v-rhythm * 2.5;
     @include media($media__small) { @include font-size(19); line-height:$v-rhythm * 2.5 }
   }
+}
+
+.text--center {
+  text-align: center;
 }
