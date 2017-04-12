@@ -116,6 +116,8 @@ aside .menu {
     // Mobile menu
     ul {
       margin-bottom:0;
+      list-style:none;
+      padding-left:0;
       li {
         border-top:1px solid $color__fipra-light-gray;
         a {
@@ -127,11 +129,15 @@ aside .menu {
 //        Second level
         > ul {
           display:none;
+          list-style:none;
+          padding-left:0;
           background-color: $color__fipra-lighter-gray;
           font-weight: $font__normal;
           li { border-top:1px solid white;
 //            Third level
             > ul {
+              list-style:none;
+              padding-left:0;
               background-color: darken($color__fipra-lighter-gray, 3%);
               li a { color:$color__fipra-blue-gray; }
             } // End of third level
