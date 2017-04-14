@@ -312,6 +312,8 @@ function fipra_customized_css()
         }
         #header-container {
             background-color: <?php echo get_theme_mod('body_background_color', '#ffffff'); ?>;
+        }
+        #header-container.with-border {
             border-top:3px solid <?php echo get_theme_mod('primary_color', '#00257f'); ?>;
         }
 
