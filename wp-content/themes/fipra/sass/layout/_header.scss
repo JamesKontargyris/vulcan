@@ -36,7 +36,7 @@
     #site-branding-container {
       @include span-columns(4);
       padding:$v-rhythm 0;
-      @include media($media__medium) { @include span-columns(2); padding:0; }
+      @include media($media__medium) { padding:0; }
 
       h1.site-title {
         line-height: 1rem;
@@ -53,7 +53,6 @@
       @include span-columns(8);
       float:right;
       width:auto;
-      @include media($media__medium) { @include span-columns(10); }
 
       .search-global-network-button {
         display:none;
