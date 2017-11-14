@@ -241,3 +241,23 @@ function pa_services_carousel_sc() {
     return $string;
 }
 add_shortcode( 'pa_services_carousel', 'pa_services_carousel_sc' );
+
+function services_menu_sc()
+{
+	$services = get_all_services();
+	$string = '';
+
+	$string .= '<ul class="services-menu">';
+
+	while($services->have_posts()) : $services->the_post();
+		$string .= '<li class="services-menu__item">';
+			$string .= '<a href="#" class="services-menu__title"><i class="services-menu__arrow fa fa-caret-right"></i> ' . get_the_title() . '</a>';
+			$string .= '<div class="services-menu__explanation">' . get_field('explanation') . '</div>';
+		$string .= '</li>';
+	endwhile;
+
+	$string .= '</ul>';
+
+	return $string;
+}
+add_shortcode( 'services_menu', 'services_menu_sc' );

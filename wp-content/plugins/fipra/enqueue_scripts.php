@@ -48,6 +48,11 @@ function fipradotcom_scripts()
 //        true
 //    );
 
+	wp_enqueue_script(
+		'fipradotcom-font-awesome',
+		'https://use.fontawesome.com/f38f075f09.js'
+	);
+
     wp_enqueue_script(
         'fipradotcom-adblock-check',
         get_template_directory_uri() . '/minjs/ads.min.js',
@@ -189,6 +194,14 @@ function fipradotcom_scripts()
 		get_template_directory_uri() . '/minjs/article.min.js',
 		array(),
 		'20170125',
+		true
+	);
+
+	wp_enqueue_script(
+		'fipradotcom-services-js',
+		get_template_directory_uri() . '/minjs/services.min.js',
+		array(),
+		'20171114',
 		true
 	);
 

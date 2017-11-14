@@ -176,6 +176,22 @@ function get_popular_articles_for_widget($count = 5)
 	return $articles;
 }
 
+function get_all_services() {
+
+	global $post;
+
+	$args = [
+		'post_type' => 'service',
+		'post_status' => 'publish',
+		'posts_per_page' => -1,
+	];
+
+	$services = new WP_Query($args);
+	wp_reset_postdata();
+
+	return $services;
+}
+
 function article_pagination($articles)
 {
 	global $wp_query;
