@@ -2,7 +2,9 @@
 	<?php $articles = get_articles(get_option( 'posts_per_page' )); ?>
 	<?php if($articles->have_posts()) : ?>
 		<?php while($articles->have_posts()) : $articles->the_post(); ?>
-			<?php include('article-extract.php'); ?>
+            <?php if( ! in_category('in-the-media') ) : ?>
+			    <?php include('article-extract.php'); ?>
+            <?php endif; ?>
 		<?php endwhile; ?>
 	<?php else : ?>
 		No news at this time.
