@@ -34,12 +34,12 @@
 
                         <?php the_content(); ?>
 
-                        <?php if(format_article_tags()) : ?>
-                            <div class="article__tags">
-                                <h6>Tags:</h6>
-                                <?php echo format_article_tags(); ?>
-                            </div>
-                        <?php endif; ?>
+<!--                        --><?php //if(format_article_tags()) : ?>
+<!--                            <div class="article__tags">-->
+<!--                                <h6>Tags:</h6>-->
+<!--                                --><?php //echo format_article_tags(); ?>
+<!--                            </div>-->
+<!--                        --><?php //endif; ?>
 
                     </main><!-- #main -->
                 </div><!-- #primary -->
@@ -50,10 +50,10 @@
                         <h5>All Categories</h5>
 	                    <?php wp_list_categories(['show_count' => 1, 'title_li' => '', 'style' => '']); ?>
                     </aside>
-                    <aside>
-                        <h5>All Tags</h5>
-		                <?php echo format_sidebar_tags(); ?>
-                    </aside>
+<!--                    <aside>-->
+<!--                        <h5>All Tags</h5>-->
+<!--		                --><?php //echo format_sidebar_tags(); ?>
+<!--                    </aside>-->
                 </div><!-- #secondary -->
 
         <?php endwhile; endif; ?>
