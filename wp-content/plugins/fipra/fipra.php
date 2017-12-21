@@ -10,3 +10,4 @@ require_once( dirname(__FILE__) . '/shortcodes.php');
 require_once( dirname(__FILE__) . '/enqueue_scripts.php');
 require_once( dirname(__FILE__) . '/lib/Palette.php');
 require_once( dirname(__FILE__) . '/Popular_Recent_News_Stories_Widget.php');
+require_once( dirname(__FILE__) . '/In_The_Media_Widget.php');

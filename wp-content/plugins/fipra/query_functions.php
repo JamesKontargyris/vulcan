@@ -176,6 +176,24 @@ function get_popular_articles_for_widget($count = 5)
 	return $articles;
 }
 
+function get_in_the_media_articles_for_widget($count = 5)
+{
+	global $post;
+
+	$args = [
+		'post_type' => 'news',
+		'post_status' => 'publish',
+		'posts_per_page' => $count,
+		'orderby' => 'date',
+		'category_name' => 'in-the-media'
+	];
+
+	$articles = new WP_Query($args);
+	wp_reset_postdata();
+
+	return $articles;
+}
+
 function get_all_services() {
 
 	global $post;
