@@ -185,6 +185,7 @@ function get_in_the_media_articles_for_widget($count = 5)
 		'post_status' => 'publish',
 		'posts_per_page' => $count,
 		'orderby' => 'date',
+		'order' => 'DESC',
 		'category_name' => 'in-the-media'
 	];
 
